@@ -22,6 +22,15 @@ import { fetchTradingSnapshot, mergeTradingSnapshot } from "@/lib/trading-snapsh
 import { TRADING_STREAM_FALLBACK_POLL_MS } from "@/lib/trading-stream";
 import { isSubscriptionActive } from "@/lib/subscription-plans";
 import { resolveMtAccountNumber } from "@/lib/mt-account";
+import {
+  DASHBOARD_DEMO,
+  DEMO_EMAIL,
+  DEMO_MT_ACCOUNT,
+  DEMO_PLATFORM,
+  buildDemoBots,
+  buildDemoSnapshot,
+  buildDemoSubscription,
+} from "@/lib/demo-data";
 
 type DashboardContextValue = {
   subscription: Subscription | null;
@@ -52,6 +61,13 @@ export function DashboardProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const load = useCallback(async () => {
+    if (DASHBOARD_DEMO) {
+      setSubscription(buildDemoSubscription());
+      setBots(buildDemoBots());
+      setTradingSnapshot(buildDemoSnapshot());
+      setLoading(false);
+      return;
+    }
     if (!user) {
       setSubscription(null);
       setBots([]);
@@ -78,7 +94,7 @@ export function DashboardProvider({ children }: { children: ReactNode }) {
 
   const refresh = useCallback(async () => {
     await load();
-    if (!user) return;
+    if (!user || DASHBOARD_DEMO) return;
     const snap = await fetchTradingSnapshot(user.uid);
     applySnapshot(snap);
   }, [user, load, applySnapshot]);
@@ -88,6 +104,7 @@ export function DashboardProvider({ children }: { children: ReactNode }) {
   }, [load]);
 
   useEffect(() => {
+    if (DASHBOARD_DEMO) return;
     if (!user) {
       setTradingSnapshot(null);
       setListenerFailed(false);
@@ -98,7 +115,7 @@ export function DashboardProvider({ children }: { children: ReactNode }) {
   }, [user, applySnapshot]);
 
   useEffect(() => {
-    if (!user || !listenerFailed) return;
+    if (!user || !listenerFailed || DASHBOARD_DEMO) return;
 
     let cancelled = false;
 
@@ -120,12 +137,11 @@ export function DashboardProvider({ children }: { children: ReactNode }) {
     ? isSubscriptionActive(subscription.validUntil, subscription.status)
     : false;
 
-  const email = user?.email ?? profile?.email ?? "";
-  const platform = profile?.platform ?? "—";
-  const mtAccountNumber = resolveMtAccountNumber(
-    subscription?.mtAccountNumber,
-    profile?.mtAccountNumber,
-  );
+  const email = user?.email ?? profile?.email ?? (DASHBOARD_DEMO ? DEMO_EMAIL : "");
+  const platform = profile?.platform ?? (DASHBOARD_DEMO ? DEMO_PLATFORM : "—");
+  const mtAccountNumber =
+    resolveMtAccountNumber(subscription?.mtAccountNumber, profile?.mtAccountNumber) ||
+    (DASHBOARD_DEMO ? DEMO_MT_ACCOUNT : "");
 
   const { accessibleBots, lockedBots } = useMemo(() => {
     const sorted = [...bots].sort((a, b) => {

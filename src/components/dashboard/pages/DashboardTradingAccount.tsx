@@ -25,7 +25,7 @@ import DashboardSectionHead from "@/components/dashboard/DashboardSectionHead";
 import DashboardBlock from "@/components/dashboard/DashboardBlock";
 import DashboardCard from "@/components/dashboard/DashboardCard";
 import DashboardMetaItem from "@/components/dashboard/DashboardMetaItem";
-import BalanceGrowthChart from "@/components/dashboard/BalanceGrowthChart";
+import BalanceCard from "@/components/dashboard/BalanceCard";
 import BotLiveSituation from "@/components/dashboard/BotLiveSituation";
 import AttachedChartBadge from "@/components/dashboard/AttachedChartBadge";
 import { formatSymbolTimeframe } from "@/lib/chart-context";
@@ -56,7 +56,6 @@ export default function DashboardTradingAccount() {
   const mtAccount = mtAccountNumber;
   const hasProfileOnly = !subscription?.mtAccountNumber && Boolean(profile?.mtAccountNumber);
   const currency = tradingSnapshot?.currency ?? "USD";
-  const history = tradingSnapshot?.balanceHistory ?? [];
   const maxFloatingLoss = tradingSnapshot?.maxFloatingLoss;
 
   useEffect(() => {
@@ -217,11 +216,7 @@ export default function DashboardTradingAccount() {
                   </div>
                 </div>
 
-                <BalanceGrowthChart
-                  history={history}
-                  currency={currency}
-                  currentBalance={tradingSnapshot.balance}
-                />
+                <BalanceCard snapshot={tradingSnapshot} compact />
 
                 {tradingSnapshot.botStatus ? (
                   <BotLiveSituation

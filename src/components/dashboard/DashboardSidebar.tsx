@@ -3,17 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { LogOut, X, Menu } from "lucide-react";
-import { useAuth } from "@/contexts/AuthContext";
+import { ArrowUpRight, LogOut, X, Menu } from "lucide-react";
 import { useDashboard } from "@/contexts/DashboardContext";
 import { signOut } from "@/lib/auth";
-import { DASHBOARD_NAV, isDashboardNavActive } from "@/lib/dashboard-nav";
-
-
-function userInitials(email: string): string {
-  const part = email.split("@")[0] ?? "U";
-  return part.slice(0, 2).toUpperCase();
-}
+import { DASHBOARD_NAV, DASHBOARD_NAV_GROUPS, isDashboardNavActive } from "@/lib/dashboard-nav";
 
 type DashboardSidebarProps = {
   mobileOpen: boolean;
@@ -25,21 +18,17 @@ export function DashboardMobileToggle({ onOpen }: { onOpen: () => void }) {
     <button
       type="button"
       onClick={onOpen}
-      className="lg:hidden flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-sm font-medium text-foreground cursor-pointer"
+      className="lg:hidden flex items-center justify-center h-10 w-10 rounded-xl border border-white/10 bg-white/5 text-foreground cursor-pointer"
       aria-label="Open dashboard menu"
     >
       <Menu size={18} />
-      Menu
     </button>
   );
 }
 
 export default function DashboardSidebar({ mobileOpen, onMobileClose }: DashboardSidebarProps) {
   const pathname = usePathname();
-  const { user, profile } = useAuth();
   const { active } = useDashboard();
-
-  const email = user?.email ?? profile?.email ?? "";
 
   const navItems = DASHBOARD_NAV.filter((item) => !item.requiresActive || active);
 
@@ -53,14 +42,16 @@ export default function DashboardSidebar({ mobileOpen, onMobileClose }: Dashboar
     <>
       <div className="dashboard-sidebar-brand">
         <Link href="/dashboard" className="flex items-center gap-2.5 cursor-pointer" onClick={onMobileClose}>
-          <Image src="/logo/logo.png" alt="" width={28} height={28} className="object-contain" />
-          <span className="font-display text-sm font-bold text-foreground">Member area</span>
+          <span className="brand-tile !w-8 !h-8">
+            <Image src="/logo/logo.png" alt="" width={16} height={16} className="object-contain" />
+          </span>
+          <span className="text-sm font-bold tracking-[0.16em] uppercase text-foreground">Quantra</span>
         </Link>
         {mobileOpen && (
           <button
             type="button"
             onClick={onMobileClose}
-            className="lg:hidden p-1.5 rounded-lg hover:bg-secondary cursor-pointer"
+            className="lg:hidden p-1.5 rounded-lg hover:bg-white/8 cursor-pointer"
             aria-label="Close menu"
           >
             <X size={18} />
@@ -68,37 +59,41 @@ export default function DashboardSidebar({ mobileOpen, onMobileClose }: Dashboar
         )}
       </div>
 
-      <div className="dashboard-sidebar-user">
-        <span className="dashboard-sidebar-avatar">{userInitials(email)}</span>
-        <div className="min-w-0">
-          <p className="text-xs font-data text-muted-foreground">Signed in as</p>
-          <p className="text-sm font-medium text-foreground truncate">{email}</p>
-        </div>
-      </div>
-
       <nav className="dashboard-sidebar-nav" aria-label="Dashboard">
-        <p className="dashboard-sidebar-group-label">Dashboard</p>
-        <ul className="flex flex-col gap-0.5">
-          {navItems.map(({ id, label, href, icon: Icon }) => {
-            const isActive = isDashboardNavActive(pathname, href);
-            return (
-              <li key={id}>
-                <Link
-                  href={href}
-                  onClick={onMobileClose}
-                  className={`dashboard-sidebar-link ${isActive ? "dashboard-sidebar-link--active" : ""}`}
-                  aria-current={isActive ? "page" : undefined}
-                >
-                  <Icon size={16} className="shrink-0" />
-                  {label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        {DASHBOARD_NAV_GROUPS.map(({ id, label }) => {
+          const items = navItems.filter((item) => item.group === id);
+          if (items.length === 0) return null;
+          return (
+            <div key={id}>
+              <p className="dashboard-sidebar-group-label">{label}</p>
+              <ul className="flex flex-col gap-1">
+                {items.map(({ id: itemId, label: itemLabel, href, icon: Icon }) => {
+                  const isActive = isDashboardNavActive(pathname, href);
+                  return (
+                    <li key={itemId}>
+                      <Link
+                        href={href}
+                        onClick={onMobileClose}
+                        className={`dashboard-sidebar-link ${isActive ? "dashboard-sidebar-link--active" : ""}`}
+                        aria-current={isActive ? "page" : undefined}
+                      >
+                        <Icon size={16} className="shrink-0" />
+                        {itemLabel}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        })}
       </nav>
 
-      <div className="dashboard-sidebar-footer">
+      <div className="dashboard-sidebar-footer flex flex-col gap-1">
+        <Link href="/" className="dashboard-sidebar-link" onClick={onMobileClose}>
+          <ArrowUpRight size={16} className="shrink-0" />
+          Back to website
+        </Link>
         <button
           type="button"
           onClick={handleSignOut}

@@ -21,7 +21,7 @@ export default function PageHero({
   const hasActions = Boolean(cta || secondaryCta);
 
   return (
-    <header className="bg-background border-b border-border">
+    <header className="border-b border-border">
       <div className="container-site page-header-y">
         <div
           className={

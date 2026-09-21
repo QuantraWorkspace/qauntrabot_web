@@ -4,130 +4,181 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import {
+  ArrowRight,
+  BookOpen,
+  Bot,
+  Home,
+  LayoutGrid,
+  LineChart,
+  Radio,
+  Users,
+  Wrench,
+  X,
+  type LucideIcon,
+} from "lucide-react";
 import StaticAuthLinks from "./StaticAuthLinks";
 import UserNavMenu from "./UserNavMenu";
-import { SHOW_LIVE_RESULTS_PAGE } from "@/lib/site-config";
+import { PRIMARY_NAV } from "@/lib/site-nav";
 
 type NavbarProps = {
   /** When false, skip Firebase auth in the nav (marketing pages). */
   authNav?: boolean;
 };
 
-const NAV_LINKS = [
-  { label: "Bots", href: "/bots" },
-  { label: "Features", href: "/features" },
-  ...(SHOW_LIVE_RESULTS_PAGE ? [{ label: "Live Results", href: "/performance" }] : []),
-  { label: "Pricing", href: "/pricing" },
-  { label: "FAQs", href: "/faqs" },
-];
+const ICONS: Record<string, LucideIcon> = {
+  "/": Home,
+  "/markets": LineChart,
+  "/education": BookOpen,
+  "/tools": Wrench,
+  "/signals": Radio,
+  "/algo": Bot,
+  "/community": Users,
+};
+
+const MOBILE_BAR = ["/", "/markets", "/tools", "/algo"];
 
 export default function Navbar({ authNav = true }: NavbarProps) {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    if (!moreOpen) return;
+    const onEscape = (e: KeyboardEvent) => e.key === "Escape" && setMoreOpen(false);
+    document.addEventListener("keydown", onEscape);
+    return () => document.removeEventListener("keydown", onEscape);
+  }, [moreOpen]);
 
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [mobileOpen]);
+  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+  const barItems = PRIMARY_NAV.filter((i) => MOBILE_BAR.includes(i.href));
+  const sheetItems = PRIMARY_NAV.filter((i) => !MOBILE_BAR.includes(i.href));
+  const sheetActive = sheetItems.some((i) => isActive(i.href));
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4 md:px-6">
-      <nav
-        className={`mx-auto max-w-7xl transition-all duration-300 rounded-2xl border ${
-          scrolled
-            ? "bg-card/98 backdrop-blur-xl border-border shadow-[0_8px_32px_rgba(20,26,58,0.08)]"
-            : "bg-card/90 backdrop-blur-lg border-border/80"
-        }`}
-      >
-        <div className="flex items-center justify-between h-[3.25rem] sm:h-14 px-4 md:px-5">
-          <Link href="/" className="flex items-center gap-2.5 shrink-0 cursor-pointer min-w-0">
-            <Image
-              src="/logo/logo.png"
-              alt="QauntraBot"
-              width={32}
-              height={32}
-              className="object-contain shrink-0"
-              priority
-            />
-            <span className="font-display text-sm sm:text-base tracking-[0.18em] uppercase truncate">
-              <span className="font-bold text-foreground">QUANTRA</span>
-              <span className="font-medium text-muted-foreground"> BOT</span>
+    <>
+      {/* Top bar: brand + actions (desktop also carries the pill nav) */}
+      <header className="fixed top-0 inset-x-0 z-50 pointer-events-none">
+        <div className="container-site flex items-center justify-between gap-4 pt-3 md:pt-4">
+          <Link href="/" className="nav-chip pointer-events-auto cursor-pointer shrink-0">
+            <Image src="/logo/logo.png" alt="Quantra" width={26} height={26} className="object-contain logo-mark shrink-0" priority />
+            <span className="flex flex-col leading-none">
+              <span className="text-[0.8125rem] font-bold tracking-[0.2em] uppercase text-foreground">Quantra</span>
+              <span className="hidden sm:block lg:hidden 2xl:block mt-0.5 text-[0.5rem] font-medium tracking-[0.22em] uppercase text-muted-foreground">
+                Trading ecosystem
+              </span>
             </span>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-1">
-            {NAV_LINKS.map(({ label, href }) => {
-              const active = pathname === href;
+          <nav className="nav-pill hidden lg:flex pointer-events-auto" aria-label="Primary">
+            {PRIMARY_NAV.map(({ label, href }) => {
+              const Icon = ICONS[href];
               return (
                 <Link
-                  key={label}
+                  key={href}
                   href={href}
-                  className={`nav-link cursor-pointer ${active ? "nav-link-active" : ""}`}
+                  className="nav-pill-item nav-pill-item--row"
+                  data-active={isActive(href)}
+                  title={label}
                 >
-                  {label}
+                  <Icon size={19} strokeWidth={1.8} />
+                  <span className="hidden xl:inline">{label}</span>
                 </Link>
               );
             })}
-          </div>
+          </nav>
 
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-2 pointer-events-auto">
             {authNav ? <UserNavMenu /> : <StaticAuthLinks />}
           </div>
 
-          <button
-            type="button"
-            className="lg:hidden flex flex-col justify-center gap-1.5 p-2.5 -mr-1 text-foreground cursor-pointer rounded-xl hover:bg-secondary transition-colors"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-          >
-            <span className={`block h-0.5 w-5 bg-foreground transition-all duration-300 origin-center ${mobileOpen ? "rotate-45 translate-y-[5px]" : ""}`} />
-            <span className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ${mobileOpen ? "opacity-0 scale-0" : ""}`} />
-            <span className={`block h-0.5 w-5 bg-foreground transition-all duration-300 origin-center ${mobileOpen ? "-rotate-45 -translate-y-[5px]" : ""}`} />
-          </button>
+          <div className="lg:hidden flex items-center gap-2 pointer-events-auto">
+            {authNav ? (
+              <UserNavMenu />
+            ) : (
+              <Link href="/register" className="btn-primary-brand nav-action text-sm !px-4">
+                Join Quantra
+              </Link>
+            )}
+          </div>
         </div>
+      </header>
 
-        <div
-          className={`lg:hidden grid transition-all duration-300 ease-out ${mobileOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
-        >
-          <div className="overflow-hidden">
-            <div className="border-t border-border px-4 py-5 flex flex-col gap-1">
-              {NAV_LINKS.map(({ label, href }) => {
-                const active = pathname === href;
+      {/* Bottom tab bar (phone / tablet) */}
+      <div className="lg:hidden fixed bottom-4 inset-x-4 z-50 flex flex-col items-stretch gap-3">
+        {moreOpen && (
+          <div className="nav-sheet" role="dialog" aria-label="More navigation">
+            <div className="flex items-center justify-between px-3 pt-2 pb-1">
+              <span className="panel-label">More</span>
+              <button
+                type="button"
+                onClick={() => setMoreOpen(false)}
+                className="flex h-7 w-7 items-center justify-center rounded-full bg-white/8 text-foreground cursor-pointer"
+                aria-label="Close"
+              >
+                <X size={14} />
+              </button>
+            </div>
+            <div className="grid grid-cols-2 gap-1">
+              {sheetItems.map(({ label, href }) => {
+                const Icon = ICONS[href];
                 return (
                   <Link
-                    key={label}
+                    key={href}
                     href={href}
-                    className={`rounded-xl px-4 py-3 text-sm font-medium cursor-pointer transition-colors ${
-                      active
-                        ? "bg-primary/8 text-primary font-semibold"
-                        : "text-muted-foreground hover:bg-secondary hover:text-foreground"
-                    }`}
+                    onClick={() => setMoreOpen(false)}
+                    className="nav-sheet-item"
+                    data-active={isActive(href)}
                   >
+                    <Icon size={18} strokeWidth={1.8} />
                     {label}
                   </Link>
                 );
               })}
-              <div className="mt-4 pt-4 border-t border-border">
-                {authNav ? <UserNavMenu mobile /> : <StaticAuthLinks mobile />}
-              </div>
+              <Link href="/dashboard" onClick={() => setMoreOpen(false)} className="nav-sheet-item">
+                <LayoutGrid size={18} strokeWidth={1.8} />
+                Dashboard
+              </Link>
+              <Link
+                href="/register"
+                onClick={() => setMoreOpen(false)}
+                className="nav-sheet-item !text-white"
+                style={{ background: "linear-gradient(135deg, rgba(110,126,255,0.55), rgba(71,87,214,0.55))" }}
+              >
+                <ArrowRight size={18} strokeWidth={1.8} />
+                Join Quantra
+              </Link>
             </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        )}
+
+        <nav className="nav-pill flex justify-between" aria-label="Primary">
+          {barItems.map(({ label, href }) => {
+            const Icon = ICONS[href];
+            return (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setMoreOpen(false)}
+                className="nav-pill-item flex-1 !min-w-0 !px-2"
+                data-active={isActive(href) && !moreOpen}
+              >
+                <Icon size={20} strokeWidth={1.8} />
+                {label}
+              </Link>
+            );
+          })}
+          <button
+            type="button"
+            onClick={() => setMoreOpen((v) => !v)}
+            className="nav-pill-item flex-1 !min-w-0 !px-2"
+            data-active={moreOpen || sheetActive}
+            aria-expanded={moreOpen}
+          >
+            <LayoutGrid size={20} strokeWidth={1.8} />
+            More
+          </button>
+        </nav>
+      </div>
+    </>
   );
 }

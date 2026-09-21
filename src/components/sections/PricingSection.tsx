@@ -77,13 +77,13 @@ export default function PricingSection({ hideHeader = false }: { hideHeader?: bo
               key={plan.id}
               className={`relative flex flex-col rounded-2xl h-full ${
                 featured
-                  ? "pricing-featured bg-primary text-primary-foreground shadow-[0_20px_48px_rgba(11,31,61,0.18)] md:-translate-y-1"
+                  ? "pricing-featured glass-strong glow-ring text-foreground md:-translate-y-1"
                   : "card-surface"
               }`}
             >
               {featured && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                  <span className="bg-card text-primary text-xs font-bold px-3 py-1 rounded-full border border-border font-data uppercase">
+                  <span className="btn-primary-brand !py-1.5 !px-3 text-[0.6875rem] font-bold font-data uppercase tracking-[0.12em]">
                     Best value
                   </span>
                 </div>
@@ -96,7 +96,7 @@ export default function PricingSection({ hideHeader = false }: { hideHeader?: bo
                   </h3>
                   <p
                     className={`text-sm leading-relaxed min-h-[3.25rem] ${
-                      featured ? "text-primary-foreground/75" : "text-muted-foreground"
+                      "text-muted-foreground"
                     }`}
                   >
                     {plan.description}
@@ -108,7 +108,7 @@ export default function PricingSection({ hideHeader = false }: { hideHeader?: bo
 
                 <div
                   className={`pb-4 border-b ${
-                    featured ? "border-primary-foreground/15" : "border-border"
+                    "border-border"
                   }`}
                 >
                   <div className="flex items-baseline gap-2 flex-wrap">
@@ -117,7 +117,7 @@ export default function PricingSection({ hideHeader = false }: { hideHeader?: bo
                     </span>
                     <span
                       className={`text-sm font-data ${
-                        featured ? "text-primary-foreground/60" : "text-muted-foreground"
+                        "text-muted-foreground"
                       }`}
                     >
                       {plan.periodLabel}
@@ -126,7 +126,7 @@ export default function PricingSection({ hideHeader = false }: { hideHeader?: bo
                   {period !== "monthly" && (
                     <p
                       className={`text-xs font-data mt-1 ${
-                        featured ? "text-primary-foreground/55" : "text-muted-foreground"
+                        "text-muted-foreground"
                       }`}
                     >
                       ≈ ${plan.pricePerMonth}/mo
@@ -138,7 +138,7 @@ export default function PricingSection({ hideHeader = false }: { hideHeader?: bo
                   <div
                     className={`flex items-center justify-center gap-2 py-3 text-sm font-semibold rounded-full mt-auto ${
                       featured
-                        ? "bg-primary-foreground/20 text-primary-foreground border border-primary-foreground/30"
+                        ? "bg-primary/20 text-foreground border border-primary/40"
                         : "border border-primary/25 text-primary bg-primary/5"
                     }`}
                   >
@@ -149,7 +149,7 @@ export default function PricingSection({ hideHeader = false }: { hideHeader?: bo
                     href={`/register?plan=${period}`}
                     className={`flex items-center justify-center gap-2 py-3 text-sm font-semibold rounded-full cursor-pointer mt-auto ${
                       featured
-                        ? "bg-primary-foreground text-primary"
+                        ? "btn-white-brand w-full"
                         : "btn-primary-brand w-full"
                     }`}
                   >
@@ -161,7 +161,7 @@ export default function PricingSection({ hideHeader = false }: { hideHeader?: bo
 
               <p
                 className={`text-xs text-center pb-5 font-data ${
-                  featured ? "text-primary-foreground/50" : "text-muted-foreground"
+                  "text-muted-foreground"
                 }`}
               >
                 7-day money-back

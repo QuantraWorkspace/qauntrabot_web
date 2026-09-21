@@ -1,24 +1,24 @@
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site-config";
 
-export const SITE_NAME = "QauntraBot";
+export const SITE_NAME = "Quantra";
 
-export const DEFAULT_TITLE =
-  "QauntraBot — Institutional-Grade Algorithmic Trading";
+export const DEFAULT_TITLE = "Quantra — Trading Education, Analysis, Tools & Community";
 
 export const DEFAULT_DESCRIPTION =
-  "Automate your trading with QauntraBot's precision Expert Advisor. Engineered for MT4/MT5, featuring smart risk management, 24/7 execution, and institutional-grade performance.";
+  "Quantra is a trader-first ecosystem: education, fundamental and technical market analysis, trading signals, free TradingView indicators, algorithmic trading tools and a community of traders.";
 
 export const DEFAULT_KEYWORDS = [
-  "expert advisor",
+  "trading education",
+  "market analysis",
+  "trading signals",
+  "TradingView indicators",
+  "trading tools",
   "algorithmic trading",
-  "forex EA",
+  "expert advisor",
   "MT5 EA",
-  "MT4 EA",
-  "automated trading",
-  "XAUUSD EA",
-  "gold trading bot",
-  "QauntraBot",
+  "trading community",
+  "Quantra",
 ];
 
 /** Default OG/Twitter image (path relative to metadataBase). */
@@ -26,11 +26,18 @@ export const DEFAULT_OG_IMAGE = "/logo/logo.png";
 
 export const PUBLIC_ROUTES: { path: string; changeFrequency?: "weekly" | "monthly"; priority?: number }[] = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
-  { path: "/bots", changeFrequency: "weekly", priority: 0.9 },
-  { path: "/features", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/pricing", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/markets", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/education", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/tools", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/signals", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/algo", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/community", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/about", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/bots", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/features", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/pricing", changeFrequency: "weekly", priority: 0.8 },
   { path: "/faqs", changeFrequency: "monthly", priority: 0.7 },
-  { path: "/register", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/register", changeFrequency: "monthly", priority: 0.7 },
 ];
 
 export const NOINDEX_ROBOTS: Metadata["robots"] = {
@@ -81,7 +88,7 @@ export function createPageMetadata({
       images: [
         {
           url: DEFAULT_OG_IMAGE,
-          alt: `${SITE_NAME} — Expert Advisors for MT4 & MT5`,
+          alt: `${SITE_NAME} — Trading ecosystem`,
         },
       ],
     },
@@ -124,7 +131,7 @@ export function createRootMetadata(): Metadata {
       images: [
         {
           url: DEFAULT_OG_IMAGE,
-          alt: `${SITE_NAME} — Expert Advisors for MT4 & MT5`,
+          alt: `${SITE_NAME} — Trading ecosystem`,
         },
       ],
     },

@@ -1,81 +1,93 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SHOW_LIVE_RESULTS_PAGE } from "@/lib/site-config";
+import {
+  FOOTER_COMPANY,
+  FOOTER_PLATFORM,
+  FOOTER_RESOURCES,
+  SOCIAL_LINKS,
+  type NavItem,
+} from "@/lib/site-nav";
 
-const LINKS = {
-  Product: [
-    { label: "Features", href: "/features" },
-    ...(SHOW_LIVE_RESULTS_PAGE ? [{ label: "Live Results", href: "/performance" }] : []),
-    { label: "Pricing", href: "/pricing" },
-    { label: "Bots", href: "/bots" },
-  ],
-  Support: [
-    { label: "FAQs", href: "/faqs" },
-    { label: "Get Access", href: "/register" },
-  ],
-  Legal: ["Terms of Service", "Privacy Policy", "Risk Disclosure", "Refund Policy"],
-};
+const COLUMNS: { title: string; links: NavItem[] }[] = [
+  { title: "Platform", links: FOOTER_PLATFORM },
+  { title: "Resources", links: FOOTER_RESOURCES },
+  { title: "Company", links: FOOTER_COMPANY },
+];
+
+const LEGAL = ["Terms", "Privacy", "Risk Disclosure"];
 
 export default function Footer() {
   return (
-    <footer className="section-navy section-y-sm">
-      <div className="container-site stack-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-10">
-          <div className="col-span-2 lg:col-span-2 stack-4">
+    <footer className="border-t border-white/8 bg-black/30">
+      <div className="container-site pt-16 pb-10 md:pt-20 md:pb-12">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-x-8 gap-y-12">
+          <div className="col-span-2 md:col-span-5 lg:col-span-4 flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-3 w-fit cursor-pointer">
-              <Image src="/logo/logo.png" alt="QauntraBot" width={32} height={32} className="object-contain" />
-              <span className="font-display text-lg font-bold text-primary-foreground">QauntraBot</span>
+              <span className="brand-tile">
+                <Image src="/logo/logo.png" alt="Quantra" width={18} height={18} className="object-contain" />
+              </span>
+              <span className="text-[0.9375rem] font-bold tracking-[0.2em] uppercase text-foreground">
+                Quantra
+              </span>
             </Link>
-            <p className="text-sm text-primary-foreground/55 leading-relaxed max-w-sm">
-              Institutional-grade algorithmic trading for precision, consistency, and capital preservation.
+            <p className="text-base text-muted-foreground leading-relaxed max-w-xs">
+              Trading intelligence. Education. Community.
             </p>
-            <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-primary-foreground/45 font-data">
-              {["Secure Checkout", "Encrypted Delivery", "24/7 Support"].map((label) => (
-                <span key={label} className="inline-flex items-center gap-1.5">
-                  <span className="w-1 h-1 rounded-full bg-profit" />
-                  {label}
-                </span>
-              ))}
-            </div>
           </div>
 
-          {Object.entries(LINKS).map(([group, links]) => (
-            <div key={group} className="stack-3">
-              <h4 className="text-xs font-bold text-primary-foreground/80 uppercase tracking-wider font-data">{group}</h4>
-              <ul className="stack-2">
-                {links.map((link) => {
-                  const label = typeof link === "string" ? link : link.label;
-                  const href = typeof link === "string" ? "#" : link.href;
-                  return (
+          <div className="col-span-2 md:col-span-7 lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
+            {COLUMNS.map(({ title, links }) => (
+              <div key={title} className="flex flex-col gap-4">
+                <h4 className="panel-label">{title}</h4>
+                <ul className="flex flex-col gap-2.5">
+                  {links.map(({ label, href }) => (
                     <li key={label}>
-                      {href !== "#" ? (
-                        <Link href={href} className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors cursor-pointer">
-                          {label}
-                        </Link>
-                      ) : (
-                        <span className="text-sm text-primary-foreground/35">{label}</span>
-                      )}
+                      <Link
+                        href={href}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                      >
+                        {label}
+                      </Link>
                     </li>
-                  );
-                })}
+                  ))}
+                </ul>
+              </div>
+            ))}
+            <div className="flex flex-col gap-4">
+              <h4 className="panel-label">Follow us</h4>
+              <ul className="flex flex-col gap-2.5">
+                {SOCIAL_LINKS.map(({ label, href }) => (
+                  <li key={label}>
+                    {href ? (
+                      <a href={href} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                        {label}
+                      </a>
+                    ) : (
+                      <span className="text-sm text-muted-foreground/60" title="Coming soon">{label}</span>
+                    )}
+                  </li>
+                ))}
               </ul>
             </div>
-          ))}
+          </div>
         </div>
 
-        <div className="rounded-xl border border-white/10 bg-white/5 p-5 stack-2">
-          <h5 className="text-xs font-bold text-primary-foreground/70 uppercase tracking-wider font-data">Risk Disclosure</h5>
-          <p className="text-sm text-primary-foreground/45 leading-relaxed">
-            Trading carries significant risk. Past performance is not indicative of future results. QauntraBot does not provide investment advice.
+        <div className="mt-14 pt-6 border-t border-white/8 flex flex-col gap-6">
+          <p className="text-xs text-muted-foreground leading-relaxed max-w-3xl">
+            Trading involves substantial risk and is not suitable for every investor. Nothing on
+            Quantra is investment advice. Signals, analysis, tools and automation are provided for
+            educational purposes; past results do not guarantee future outcomes.
           </p>
-        </div>
-
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-white/10 text-xs text-primary-foreground/40 font-data">
-          <p>© {new Date().getFullYear()} QauntraBot Technologies</p>
-          <span className="inline-flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-profit" />
-            All systems operational
-          </span>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-muted-foreground">
+            <p>© {new Date().getFullYear()} Quantra. All rights reserved.</p>
+            <ul className="flex flex-wrap gap-x-5 gap-y-1">
+              {LEGAL.map((label) => (
+                <li key={label} className="text-muted-foreground/70">
+                  {label}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </footer>

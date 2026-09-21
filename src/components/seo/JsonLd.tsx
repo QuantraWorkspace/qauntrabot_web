@@ -27,7 +27,7 @@ export function SiteJsonLd() {
           url: SITE_URL,
           logo: `${SITE_URL}/logo/logo.png`,
           description:
-            "Institutional-grade Expert Advisors and algorithmic trading bots for MetaTrader 4 and 5.",
+            "A trader-first ecosystem: trading education, market analysis, signals, free tools, algorithmic trading and community.",
         },
         {
           "@context": "https://schema.org",

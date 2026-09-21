@@ -3,18 +3,20 @@
 import { useEffect, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
+import { DASHBOARD_DEMO } from "@/lib/demo-data";
 
 export default function DashboardGate({ children }: { children: ReactNode }) {
   const router = useRouter();
   const { user, loading } = useAuth();
 
   useEffect(() => {
+    if (DASHBOARD_DEMO) return;
     if (!loading && !user) {
       router.replace("/register?next=/dashboard");
     }
   }, [user, loading, router]);
 
-  if (loading || !user) {
+  if (!DASHBOARD_DEMO && (loading || !user)) {
     return (
       <div className="dashboard-shell">
         <div className="dashboard-main">

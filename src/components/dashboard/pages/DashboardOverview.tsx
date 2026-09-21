@@ -1,15 +1,16 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { useDashboard } from "@/contexts/DashboardContext";
 import DashboardSectionHead from "@/components/dashboard/DashboardSectionHead";
 import DashboardSubscriptionAlerts from "@/components/dashboard/DashboardSubscriptionAlerts";
 import DashboardOverviewStats from "@/components/dashboard/DashboardOverviewStats";
 import DashboardBlock from "@/components/dashboard/DashboardBlock";
+import BalanceCard from "@/components/dashboard/BalanceCard";
+import AccountHealthCard from "@/components/dashboard/AccountHealthCard";
+import OverviewGoalCards from "@/components/dashboard/OverviewGoalCards";
 
 export default function DashboardOverview() {
-  const { loading, active, email, platform } = useDashboard();
+  const { loading, email, tradingSnapshot } = useDashboard();
 
   return (
     <div className="dashboard-page">
@@ -19,36 +20,20 @@ export default function DashboardOverview() {
         description={<p className="font-data truncate max-w-lg">{email}</p>}
       />
 
+      <div className="grid xl:grid-cols-[1.6fr_1fr] gap-4">
+        <BalanceCard snapshot={tradingSnapshot} loading={loading} />
+        <AccountHealthCard snapshot={tradingSnapshot} loading={loading} />
+      </div>
+
       <DashboardBlock title="At a glance">
-        <DashboardOverviewStats />
+        <DashboardOverviewStats compact />
       </DashboardBlock>
 
       <DashboardSubscriptionAlerts />
 
-      {!loading && (
-        <div className="dashboard-quick-links">
-          <Link
-            href="/dashboard/trading-account"
-            className="dashboard-card hover:border-primary/25 transition-colors"
-          >
-            <p className="font-display font-bold text-foreground">Trading account</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Balance, equity, MT number, platform ({platform}), and your bots.
-            </p>
-          </Link>
-          <Link
-            href={active ? "/dashboard/bots" : "/pricing"}
-            className="dashboard-card hover:border-primary/25 transition-colors"
-          >
-            <p className="font-display font-bold text-foreground">
-              {active ? "My bots" : "Get access"}
-            </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              {active ? "Download EAs and view your full catalogue." : "Subscribe to unlock all Expert Advisors."}
-            </p>
-          </Link>
-        </div>
-      )}
+      <DashboardBlock title="Account overview">
+        <OverviewGoalCards />
+      </DashboardBlock>
     </div>
   );
 }

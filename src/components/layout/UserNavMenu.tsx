@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { LogOut, LayoutDashboard, Bot, ChevronDown } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { signOut } from "@/lib/auth";
+import StaticAuthLinks from "./StaticAuthLinks";
 
 function userInitials(email: string): string {
   const part = email.split("@")[0] ?? "U";
@@ -55,31 +56,7 @@ export default function UserNavMenu({ mobile = false }: { mobile?: boolean }) {
   }
 
   if (!user) {
-    if (mobile) {
-      return (
-        <div className="flex flex-col gap-2">
-          <Link
-            href="/register"
-            className="rounded-xl px-4 py-3 text-sm font-medium text-muted-foreground hover:bg-secondary cursor-pointer text-center"
-          >
-            Sign In
-          </Link>
-          <Link href="/register" className="btn-primary-brand w-full justify-center">
-            Get Access
-          </Link>
-        </div>
-      );
-    }
-    return (
-      <>
-        <Link href="/register" className="nav-link cursor-pointer">
-          Sign In
-        </Link>
-        <Link href="/register" className="btn-primary-brand text-sm !py-2.5 !px-5">
-          Get Access
-        </Link>
-      </>
-    );
+    return <StaticAuthLinks mobile={mobile} />;
   }
 
   const email = user.email ?? profile?.email ?? "";
@@ -134,7 +111,7 @@ export default function UserNavMenu({ mobile = false }: { mobile?: boolean }) {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-2 rounded-full border border-border bg-secondary/80 pl-1 pr-2.5 py-1 hover:border-primary/30 hover:bg-secondary transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25"
+        className="nav-chip !gap-2 !pl-1.5 !pr-3 hover:border-white/30 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
         aria-expanded={open}
         aria-haspopup="menu"
         aria-label="Account menu"
