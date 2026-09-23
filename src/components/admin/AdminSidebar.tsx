@@ -35,7 +35,7 @@ export default function AdminSidebar() {
         <Link href="/admin" className="flex items-center gap-2.5">
           <Image src="/logo/logo.png" alt="" width={28} height={28} className="rounded-md" />
           <div>
-            <p className="font-display font-bold text-sm leading-none">QauntraBot</p>
+            <p className="font-display font-bold text-sm leading-none">Quantra</p>
             <p className="text-[0.65rem] text-primary-foreground/50 font-data uppercase tracking-wider mt-0.5">
               Admin
             </p>

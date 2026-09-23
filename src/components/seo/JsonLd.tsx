@@ -34,14 +34,8 @@ export function SiteJsonLd() {
           "@type": "WebSite",
           name: SITE_NAME,
           url: SITE_URL,
-          potentialAction: {
-            "@type": "SearchAction",
-            target: {
-              "@type": "EntryPoint",
-              urlTemplate: `${SITE_URL}/bots?q={search_term_string}`,
-            },
-            "query-input": "required name=search_term_string",
-          },
+          // No SearchAction: this declared a sitewide search at /bots?q=, but
+          // that route reads no query param. Re-add it when search exists.
         },
       ]}
     />
@@ -84,13 +78,13 @@ export function BotProductJsonLd({ id, name, description, asset }: BotJsonLdInpu
         name,
         description,
         applicationCategory: "FinanceApplication",
-        operatingSystem: "MetaTrader 4, MetaTrader 5",
+        // The strategy specification states MetaTrader 5 only; claiming MT4
+        // here contradicted it.
+        operatingSystem: "MetaTrader 5",
         url,
-        offers: {
-          "@type": "Offer",
-          url: `${SITE_URL}/pricing`,
-          availability: "https://schema.org/InStock",
-        },
+        // No Offer: one without price and priceCurrency is an incomplete entity
+        // that asserts purchasability without stating terms. Prices are per
+        // billing period and come from Firestore, so they are not static here.
         featureList: asset,
         brand: {
           "@type": "Brand",

@@ -2166,7 +2166,7 @@
     .features-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (min-width: 1024px) {
-    .features-grid { grid-template-columns: repeat(4, 1fr); }
+    .features-grid { grid-template-columns: repeat(3, 1fr); }
   }
   .features-grid-cell {
     padding: 2rem;
@@ -2185,8 +2185,8 @@
     .features-grid-cell:nth-last-child(-n+1) { border-bottom: none; }
   }
   @media (min-width: 1024px) {
-    .features-grid-cell:nth-child(4n) { border-right: none; }
-    .features-grid-cell:nth-last-child(-n+4) { border-bottom: none; }
+    .features-grid-cell:nth-child(3n) { border-right: none; }
+    .features-grid-cell:nth-last-child(-n+3) { border-bottom: none; }
   }
 
   /* ═══════════════════════════════════════════════════════════

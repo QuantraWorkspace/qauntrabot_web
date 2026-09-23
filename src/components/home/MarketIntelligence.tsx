@@ -28,7 +28,6 @@ export default function MarketIntelligence({ hideHeader = false }: MarketIntelli
         {!hideHeader && (
         <ScrollReveal variant="up" className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
           <div className="max-w-2xl">
-            <span className="eyebrow">Market intelligence</span>
             <h2 className="section-title mt-5">Know what moves the market.</h2>
             <p className="lead-text mt-6 max-w-xl">
               Daily fundamental and technical context across the markets traders actually watch,

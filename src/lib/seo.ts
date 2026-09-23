@@ -20,9 +20,6 @@ export const DEFAULT_KEYWORDS = [
   "Quantra",
 ];
 
-/** Default OG/Twitter image (path relative to metadataBase). */
-export const DEFAULT_OG_IMAGE = "/logo/logo.png";
-
 export const PUBLIC_ROUTES: { path: string; changeFrequency?: "weekly" | "monthly"; priority?: number }[] = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
   { path: "/markets", changeFrequency: "weekly", priority: 0.9 },
@@ -83,18 +80,12 @@ export function createPageMetadata({
       siteName: SITE_NAME,
       title: socialTitle,
       description,
-      images: [
-        {
-          url: DEFAULT_OG_IMAGE,
-          alt: `${SITE_NAME} — Trading ecosystem`,
-        },
-      ],
+      // Images come from src/app/opengraph-image.tsx (1200x630).
     },
     twitter: {
       card: "summary_large_image",
       title: socialTitle,
       description,
-      images: [DEFAULT_OG_IMAGE],
     },
   };
 }
@@ -126,18 +117,12 @@ export function createRootMetadata(): Metadata {
       siteName: SITE_NAME,
       title: DEFAULT_TITLE,
       description: DEFAULT_DESCRIPTION,
-      images: [
-        {
-          url: DEFAULT_OG_IMAGE,
-          alt: `${SITE_NAME} — Trading ecosystem`,
-        },
-      ],
+      // Images come from src/app/opengraph-image.tsx (1200x630).
     },
     twitter: {
       card: "summary_large_image",
       title: DEFAULT_TITLE,
       description: DEFAULT_DESCRIPTION,
-      images: [DEFAULT_OG_IMAGE],
     },
     robots: {
       index: true,

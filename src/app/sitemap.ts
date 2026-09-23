@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllBots } from "@/lib/firestore-api";
 import { PUBLIC_ROUTES } from "@/lib/seo";
-import { SHOW_LIVE_RESULTS_PAGE, SITE_URL } from "@/lib/site-config";
+import { SITE_URL } from "@/lib/site-config";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
@@ -13,15 +13,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority,
     })
   );
-
-  if (SHOW_LIVE_RESULTS_PAGE) {
-    staticEntries.push({
-      url: `${SITE_URL}/performance`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.85,
-    });
-  }
 
   let botEntries: MetadataRoute.Sitemap = [];
   try {

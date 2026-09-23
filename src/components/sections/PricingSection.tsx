@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { getUserSubscription } from "@/lib/firestore";
 import Link from "next/link";
-import { Check, ArrowRight } from "lucide-react";
+import { Check } from "lucide-react";
 import SectionHeader from "@/components/shared/SectionHeader";
 import PageSection from "@/components/shared/PageSection";
 import type { SubscriptionPlanDoc } from "@/lib/firestore";
@@ -83,7 +83,7 @@ export default function PricingSection({ hideHeader = false }: { hideHeader?: bo
             >
               {featured && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                  <span className="btn-primary-brand !py-1.5 !px-3 text-[0.6875rem] font-bold font-data uppercase tracking-[0.12em]">
+                  <span className="btn-primary-brand !py-1.5 !px-3 text-[0.6875rem] font-semibold">
                     Best value
                   </span>
                 </div>
@@ -154,7 +154,6 @@ export default function PricingSection({ hideHeader = false }: { hideHeader?: bo
                     }`}
                   >
                     Subscribe
-                    <ArrowRight size={16} />
                   </Link>
                 )}
               </div>

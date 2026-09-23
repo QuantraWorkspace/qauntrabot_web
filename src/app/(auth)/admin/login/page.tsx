@@ -55,7 +55,7 @@ function LoginForm() {
     <div className="min-h-screen bg-background flex items-center justify-center p-6">
       <div className="w-full max-w-md card-surface card-pad stack-6">
         <div className="flex flex-col items-center stack-3 text-center">
-          <Image src="/logo/logo.png" alt="QauntraBot" width={48} height={48} />
+          <Image src="/logo/logo.png" alt="Quantra" width={48} height={48} />
           <h1 className="font-display text-2xl font-bold text-foreground">Admin sign in</h1>
           <p className="text-sm text-muted-foreground">
             Restricted to authorized administrators only.

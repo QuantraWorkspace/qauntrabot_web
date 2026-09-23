@@ -14,7 +14,12 @@ const COLUMNS: { title: string; links: NavItem[] }[] = [
   { title: "Company", links: FOOTER_COMPANY },
 ];
 
-const LEGAL = ["Terms", "Privacy", "Risk Disclosure"];
+/**
+ * Terms, Privacy and Risk Disclosure used to render here as plain text styled
+ * like links, with no routes behind them. Dead labels are worse than none, so
+ * they are removed until the pages exist — they need writing before launch, and
+ * are a legal question rather than a content one.
+ */
 
 export default function Footer() {
   return (
@@ -80,13 +85,6 @@ export default function Footer() {
           </p>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-muted-foreground">
             <p>© {new Date().getFullYear()} Quantra. All rights reserved.</p>
-            <ul className="flex flex-wrap gap-x-5 gap-y-1">
-              {LEGAL.map((label) => (
-                <li key={label} className="text-muted-foreground/70">
-                  {label}
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>

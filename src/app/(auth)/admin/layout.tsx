@@ -3,7 +3,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Admin",
-  description: "QauntraBot administration.",
+  description: "Quantra administration.",
   path: "/admin",
   noIndex: true,
 });

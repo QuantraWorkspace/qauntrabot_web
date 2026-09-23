@@ -3,7 +3,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "License key",
-  description: "Your QauntraBot EA license key.",
+  description: "Your Quantra EA licence key.",
   path: "/dashboard/license",
   noIndex: true,
 });

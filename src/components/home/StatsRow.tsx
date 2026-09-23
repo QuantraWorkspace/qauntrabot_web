@@ -1,9 +1,11 @@
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
+/** Counts of things that exist on this site, and nothing else. Each is
+ *  verifiable by opening the page it refers to — keep them in step with it. */
 const STATS = [
   { value: "6", label: "Education tracks" },
-  { value: "4", label: "Markets covered every session" },
-  { value: "6", label: "Free trading tools" },
+  { value: "4", label: "Markets read before every session" },
+  { value: "3", label: "Tools that need no account" },
 ];
 
 export default function StatsRow() {

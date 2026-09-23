@@ -25,7 +25,6 @@ export default function AlgoSection({ hideHeader = false }: AlgoSectionProps) {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {!hideHeader && (
             <ScrollReveal variant="up" className="lg:col-span-5 flex flex-col gap-6">
-              <span className="eyebrow">Algo &amp; EA</span>
               <h2 className="section-title">Automate your strategy.</h2>
               <p className="lead-text max-w-md">
                 Explore Quantra&apos;s algorithmic trading tools and EAs designed to automate rule-based

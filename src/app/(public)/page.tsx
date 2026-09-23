@@ -9,7 +9,7 @@ import EducationSection from "@/components/home/EducationSection";
 import AlgoSection from "@/components/home/AlgoSection";
 import CommunitySection from "@/components/home/CommunitySection";
 import StatsRow from "@/components/home/StatsRow";
-import FinalCTA from "@/components/home/FinalCTA";
+import PageClose from "@/components/shared/PageClose";
 
 export default function Home() {
   return (
@@ -25,7 +25,12 @@ export default function Home() {
         <AlgoSection />
         <CommunitySection />
         <StatsRow />
-        <FinalCTA />
+        <PageClose
+          line="Start with the parts that cost nothing."
+          sub="The market read, the indicators and the calculators need no account. The tracks, the dashboard and the algo are there when you want them."
+          action={{ label: "Create free account", href: "/register" }}
+          secondary={{ label: "Read today's market note", href: "/markets" }}
+        />
       </main>
       <Footer />
     </>

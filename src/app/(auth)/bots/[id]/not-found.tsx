@@ -1,28 +1,23 @@
 import Link from "next/link";
-import PageWrapper from "@/components/layout/PageWrapper";
-import PageSection from "@/components/shared/PageSection";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import PageHead from "@/components/shared/PageHead";
 
 export default function BotNotFound() {
   return (
-    <PageWrapper
-      hero={{
-        eyebrow: "Strategy Catalogue",
-        title: "Bot",
-        accent: "not found.",
-        description: "This strategy may have been removed or the link is incorrect.",
-        cta: { label: "Browse all bots", href: "/bots" },
-      }}
-    >
-      <PageSection underHero narrow>
-        <div className="card-surface card-pad text-center stack-4">
-          <p className="text-sm text-muted-foreground">
-            Check the URL or return to the catalogue to find an active Expert Advisor.
-          </p>
-          <Link href="/bots" className="btn-primary-brand justify-center w-fit mx-auto">
-            View trading bots
+    <>
+      <Navbar />
+      <main id="main" className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
+        <PageHead
+          title="That strategy isn't here"
+          lede="The link may be out of date, or the strategy was withdrawn. The catalogue below lists everything that currently exists, including what is still in testing."
+        >
+          <Link href="/bots" className="btn-primary-brand w-fit">
+            Browse the catalogue
           </Link>
-        </div>
-      </PageSection>
-    </PageWrapper>
+        </PageHead>
+      </main>
+      <Footer />
+    </>
   );
 }

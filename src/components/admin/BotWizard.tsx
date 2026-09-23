@@ -402,7 +402,9 @@ export default function BotWizard({
           {step === 2 && (
             <div className="stack-4">
               <p className="text-sm text-muted-foreground">
-                Public performance stats shown on bot cards. Use verified numbers from your proof steps.
+                These appear on the public bot card as measured results. Only fill one in if the
+                number comes from a real account you can link in the proof step — otherwise leave
+                it as an em dash.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 <SelectField
@@ -420,10 +422,10 @@ export default function BotWizard({
                   value={form.minDeposit}
                   onChange={(v) => setForm({ ...form, minDeposit: v })}
                 />
-                <Field label="Gain" value={form.gain} onChange={(v) => setForm({ ...form, gain: v })} placeholder="+247.3%" />
-                <Field label="Drawdown" value={form.drawdown} onChange={(v) => setForm({ ...form, drawdown: v })} placeholder="12.4%" />
-                <Field label="Win rate" value={form.winRate} onChange={(v) => setForm({ ...form, winRate: v })} placeholder="73.2%" />
-                <Field label="Trades" value={form.trades} onChange={(v) => setForm({ ...form, trades: v })} placeholder="847" />
+                <Field label="Gain" value={form.gain} onChange={(v) => setForm({ ...form, gain: v })} placeholder="—" />
+                <Field label="Drawdown" value={form.drawdown} onChange={(v) => setForm({ ...form, drawdown: v })} placeholder="—" />
+                <Field label="Win rate" value={form.winRate} onChange={(v) => setForm({ ...form, winRate: v })} placeholder="—" />
+                <Field label="Trades" value={form.trades} onChange={(v) => setForm({ ...form, trades: v })} placeholder="—" />
               </div>
             </div>
           )}

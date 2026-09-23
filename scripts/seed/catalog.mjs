@@ -1,5 +1,5 @@
 /**
- * Canonical Firestore seed data for QauntraBot.
+ * Canonical Firestore seed data for Quantra.
  * Run: npm run seed:data
  */
 
@@ -52,12 +52,12 @@ export const SEED_BOTS = [
     assetTag: "Gold",
     status: "live",
     risk: "Medium",
-    gain: "+247.3%",
-    drawdown: "12.4%",
-    winRate: "73.2%",
-    trades: "847",
+    gain: "—",
+    drawdown: "—",
+    winRate: "—",
+    trades: "—",
     description:
-      "Grid-based Gold strategy with dynamic lot sizing. Targets consistent weekly growth on XAUUSD micro and standard accounts.",
+      "Grid-based Gold strategy with dynamic lot sizing, for XAUUSD micro and standard accounts.",
     pairs: ["XAUUSD"],
     minDeposit: "$500",
     storageFolder: "super-ea-grid",
@@ -71,7 +71,7 @@ export const SEED_BOTS = [
         broker: "Exness",
         accountType: "Standard",
         imageKeys: [],
-        notes: "Live deal history — ~10% weekly target on $10k deposit.",
+        notes: "",
       },
     },
   },
@@ -83,10 +83,10 @@ export const SEED_BOTS = [
     assetTag: "Majors",
     status: "beta",
     risk: "Low",
-    gain: "+94.1%",
-    drawdown: "8.7%",
-    winRate: "68.5%",
-    trades: "1,342",
+    gain: "—",
+    drawdown: "—",
+    winRate: "—",
+    trades: "—",
     description:
       "High-frequency scalping on major forex pairs during London and New York sessions.",
     pairs: ["EURUSD", "GBPUSD", "USDJPY"],
