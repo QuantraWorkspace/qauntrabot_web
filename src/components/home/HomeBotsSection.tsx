@@ -18,7 +18,7 @@ const FILTER_LABELS: Record<Filter, string> = {
   soon: "Coming Soon",
 };
 
-export default function HomeBotsSection() {
+export default function HomeBotsSection({ hideHeader = false }: { hideHeader?: boolean } = {}) {
   const [bots, setBots] = useState<BotDoc[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<Filter>("all");
@@ -36,8 +36,9 @@ export default function HomeBotsSection() {
   const filtered = filter === "all" ? bots : bots.filter((b) => b.status === filter);
 
   return (
-    <section id="bots" className="section-y section-cream">
+    <section id="bots" className={`section-cream ${hideHeader ? "pt-8 md:pt-10 pb-16 md:pb-24" : "section-y"}`}>
       <div className="container-site">
+        {!hideHeader && (
         <ScrollReveal variant="up" className="headline-gap">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
             <SectionHeader
@@ -55,8 +56,10 @@ export default function HomeBotsSection() {
             </Link>
           </div>
         </ScrollReveal>
+        )}
 
-        {/* Filter tabs */}
+        {/* Filter tabs — pointless until something is listed */}
+        {(loading || bots.length > 0) && (
         <div className="tab-group mb-8">
           {(Object.keys(FILTER_LABELS) as Filter[]).map((f) => (
             <button
@@ -69,6 +72,7 @@ export default function HomeBotsSection() {
             </button>
           ))}
         </div>
+        )}
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 grid-site">
           {loading &&
@@ -81,13 +85,17 @@ export default function HomeBotsSection() {
           ))}
 
           {!loading && bots.length === 0 && (
-            <p className="col-span-3 text-center text-sm text-muted-foreground py-12">
-              No bots in the catalogue yet.
-            </p>
+            <div className="sm:col-span-2 lg:col-span-3 rounded-2xl border border-dashed border-white/12 bg-white/[0.02] px-6 py-12 text-center">
+              <p className="text-sm font-semibold text-foreground">Nothing is published yet</p>
+              <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground leading-relaxed">
+                Strategies are listed here once they have run a full month on demo. Until then the
+                specification above is the accurate description of what exists.
+              </p>
+            </div>
           )}
 
           {!loading && bots.length > 0 && filtered.length === 0 && (
-            <p className="col-span-3 text-center text-sm text-muted-foreground py-12">
+            <p className="sm:col-span-2 lg:col-span-3 text-center text-sm text-muted-foreground py-12">
               No bots match this filter.
             </p>
           )}

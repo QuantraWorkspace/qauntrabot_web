@@ -24,7 +24,7 @@ type MarketIntelligenceProps = { hideHeader?: boolean };
 export default function MarketIntelligence({ hideHeader = false }: MarketIntelligenceProps) {
   return (
     <section id="markets" className="section-cream scroll-mt-20">
-      <div className="container-site py-20 md:py-28">
+      <div className={`container-site ${hideHeader ? "pt-12 md:pt-16 pb-16 md:pb-24" : "py-20 md:py-28"}`}>
         {!hideHeader && (
         <ScrollReveal variant="up" className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
           <div className="max-w-2xl">

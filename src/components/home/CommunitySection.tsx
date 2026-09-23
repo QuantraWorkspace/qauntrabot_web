@@ -28,7 +28,7 @@ type CommunitySectionProps = { hideHeader?: boolean };
 export default function CommunitySection({ hideHeader = false }: CommunitySectionProps) {
   return (
     <section id="community" className="section-cream scroll-mt-20">
-      <div className="container-site py-20 md:py-28">
+      <div className={`container-site ${hideHeader ? "pt-8 md:pt-10 pb-16 md:pb-24" : "py-20 md:py-28"}`}>
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {!hideHeader && (
           <ScrollReveal variant="up" className="lg:col-span-6 flex flex-col gap-6">
@@ -48,7 +48,7 @@ export default function CommunitySection({ hideHeader = false }: CommunitySectio
           </ScrollReveal>
           )}
 
-          <ScrollReveal variant="up" delay={120} className={hideHeader ? "lg:col-span-8 lg:col-start-3" : "lg:col-span-6"}>
+          <ScrollReveal variant="up" delay={120} className={hideHeader ? "lg:col-span-8" : "lg:col-span-6"}>
             <div className="rounded-3xl glass-inset p-3 sm:p-4 flex flex-col gap-3">
               {FEED.map(({ icon: Icon, channel, text, meta }) => (
                 <article

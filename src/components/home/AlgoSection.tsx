@@ -21,7 +21,7 @@ type AlgoSectionProps = { hideHeader?: boolean };
 export default function AlgoSection({ hideHeader = false }: AlgoSectionProps) {
   return (
     <section id="algo" className="section-cream scroll-mt-20">
-      <div className="container-site py-20 md:py-28">
+      <div className={`container-site ${hideHeader ? "pt-4 md:pt-6 pb-16 md:pb-24" : "py-20 md:py-28"}`}>
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {!hideHeader && (
             <ScrollReveal variant="up" className="lg:col-span-5 flex flex-col gap-6">
