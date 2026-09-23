@@ -20,7 +20,7 @@ export default function ChannelDirectory() {
           {SOCIAL_LINKS.map(({ label, href }) => {
             const body = (
               <>
-                <span className="dir-name">{label}</span>
+                <h3 className="dir-name">{label}</h3>
                 <p className="dir-text">{BLURBS[label]}</p>
                 <span className="state-chip" data-state={href ? "live" : undefined}>
                   <span className="state-dot" aria-hidden />

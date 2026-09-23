@@ -13,7 +13,7 @@ export default function PageWrapper({ children, hero, authNav = true }: PageWrap
   return (
     <>
       <Navbar authNav={authNav} />
-      <main className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
+      <main id="main" className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
         {hero && <PageHero {...hero} />}
         {children}
       </main>

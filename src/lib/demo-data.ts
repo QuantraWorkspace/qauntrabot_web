@@ -3,9 +3,16 @@ import type { BotDoc, Subscription, TradingSnapshot } from "@/lib/firestore";
 /**
  * Demo mode fills the member dashboard with sample data so the UI can be
  * reviewed without a linked MT account. Enable with NEXT_PUBLIC_DASHBOARD_DEMO=true.
- * Never enable in production.
+ *
+ * Demo mode also bypasses the auth gate (see DashboardGate), so it must never
+ * reach production. NEXT_PUBLIC_* values are inlined at build time, which means
+ * a production build made with the flag set would bake the bypass into the
+ * client bundle permanently — unsetting the variable afterwards would not undo
+ * it. Gating on NODE_ENV makes that impossible to build rather than something
+ * to remember: `next build` folds this to `false`, `next dev` keeps it working.
  */
-export const DASHBOARD_DEMO = process.env.NEXT_PUBLIC_DASHBOARD_DEMO === "true";
+export const DASHBOARD_DEMO =
+  process.env.NEXT_PUBLIC_DASHBOARD_DEMO === "true" && process.env.NODE_ENV !== "production";
 
 export const DEMO_UID = "demo-user";
 export const DEMO_EMAIL = "demo@quantra.app";

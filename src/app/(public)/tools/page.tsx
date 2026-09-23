@@ -17,7 +17,7 @@ export default function ToolsPage() {
   return (
     <>
       <Navbar authNav={false} />
-      <main className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
+      <main id="main" className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
         <PageHead
           title="Tools that take the friction out"
           lede="Indicators, calculators and templates for the parts of the routine that are mechanical. Most work without an account, and none of them decide anything for you."

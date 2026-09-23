@@ -21,7 +21,7 @@ export default function AlgoPage() {
   return (
     <>
       <Navbar authNav={false} />
-      <main className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
+      <main id="main" className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
         <PageHead
           title="A rule set that runs without you"
           lede="Expert advisors for MetaTrader 5 with the logic written down, risk limits you set yourself, and one license bound to one account. Automation removes the hesitation, not the risk."

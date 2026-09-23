@@ -19,7 +19,7 @@ export default function MarketsPage() {
   return (
     <>
       <Navbar authNav={false} />
-      <main className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
+      <main id="main" className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
         <PageHead
           title="What's moving, and why"
           lede="A written read on Gold, Nasdaq, the dollar and Bitcoin, published before London opens. Context first, so the entry comes from a plan instead of a reaction."

@@ -17,7 +17,7 @@ export default function EducationPage() {
   return (
     <>
       <Navbar authNav={false} />
-      <main className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
+      <main id="main" className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
         <PageHead
           title="Learn the framework, not the shortcut"
           lede="Six tracks that build on each other, from what moves a market down to running a rule set automatically. Each one ends with something you can do, not something you have watched."

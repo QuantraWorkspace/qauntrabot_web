@@ -18,7 +18,7 @@ export default function FAQsPage() {
     <>
       <FaqPageJsonLd />
       <Navbar authNav={false} />
-      <main className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
+      <main id="main" className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
         <PageHead
           title="The questions that come up first"
           lede="Grouped by where you are: starting out, buying a licence, running it day to day, or trying to work out what it will and won't do to an account."

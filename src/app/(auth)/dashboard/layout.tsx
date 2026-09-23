@@ -12,7 +12,7 @@ export const metadata = createPageMetadata({
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
-    <main className="dashboard-root">
+    <main id="main" className="dashboard-root">
       <DashboardGate>
         <DashboardProvider>
           <DashboardShell>{children}</DashboardShell>

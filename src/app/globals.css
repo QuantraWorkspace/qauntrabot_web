@@ -108,6 +108,9 @@
   --border: rgba(255, 255, 255, 0.10);
   --input: rgba(255, 255, 255, 0.14);
   --ring: #3ECF8E;
+  /* Single source for keyboard focus indicators. Mint reads as "live" elsewhere,
+     but focus is genuinely an active state, so the accent is right here. */
+  --focus-ring: #3ECF8E;
   --profit: #3ECF8E;
   --loss: #F0525A;
   --warning: #F5B942;
@@ -2594,6 +2597,36 @@
   a.dir-row:hover .dir-name {
     color: var(--primary);
   }
+  a.dir-row:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: -2px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Skip link: every page puts the full nav ahead of <main>. */
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    z-index: 100;
+    padding: 0.625rem 1rem;
+    border-radius: 9999px;
+    background: var(--popover);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    font-size: 0.875rem;
+    font-weight: 600;
+    transform: translateY(-200%);
+    transition: transform 0.18s ease;
+  }
+  .skip-link:focus-visible {
+    transform: translateY(0);
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .skip-link { transition: none; }
+  }
 
   /* ——— About: the reading column ——— */
   .read-col {
@@ -2625,6 +2658,11 @@
     color: #C3CAD6;
     transition: color 0.2s ease, border-color 0.2s ease;
   }
+  .jump-link:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+    color: var(--foreground);
+  }
   .jump-link:hover {
     color: var(--foreground);
     border-color: rgba(255, 255, 255, 0.22);
@@ -2648,6 +2686,16 @@
     line-height: 1.5;
     color: var(--foreground);
     cursor: pointer;
+    list-style: none;
+  }
+  /* Suppress the native disclosure triangle; .qa-mark is the affordance. */
+  .qa-q::-webkit-details-marker {
+    display: none;
+  }
+  .qa-q:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
   }
   .qa-mark {
     flex-shrink: 0;
@@ -2658,7 +2706,7 @@
     color: var(--muted-foreground);
     transition: color 0.2s ease;
   }
-  .qa-q[aria-expanded="true"] .qa-mark {
+  details[open] > .qa-q .qa-mark {
     color: var(--primary);
   }
   .qa-mark::before,
@@ -2680,31 +2728,29 @@
     height: 0.75rem;
     transform: translate(-50%, -50%);
   }
-  .qa-q[aria-expanded="true"] .qa-mark::after {
+  details[open] > .qa-q .qa-mark::after {
     transform: translate(-50%, -50%) scaleY(0);
     opacity: 0;
   }
+  /* The panel is shown and hidden by <details> itself, so there is nothing to
+     collapse in CSS — a closed answer is absent from the a11y tree entirely. */
   .qa-a {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.28s ease;
-  }
-  .qa-a[data-open="true"] {
-    grid-template-rows: 1fr;
-  }
-  .qa-a > div {
-    overflow: hidden;
-  }
-  .qa-a p {
+    margin: 0;
     padding-bottom: 1.375rem;
     font-size: 0.9375rem;
     line-height: 1.7;
     color: var(--muted-foreground);
     max-width: 62ch;
+    animation: qa-reveal 0.24s ease;
+  }
+
+  @keyframes qa-reveal {
+    from { opacity: 0; transform: translateY(-0.25rem); }
+    to { opacity: 1; transform: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .qa-a,
+    .qa-a { animation: none; }
     .qa-mark::before,
     .qa-mark::after { transition: none; }
   }

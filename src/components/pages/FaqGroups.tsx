@@ -1,11 +1,13 @@
-"use client";
-
-import { useState } from "react";
 import { FAQ_GROUPS, FAQ_ITEMS } from "@/lib/faq-data";
 
+/**
+ * Built on <details>/<summary> rather than a button plus a CSS-collapsed panel.
+ * The native element keeps a collapsed answer out of the accessibility tree and
+ * out of the tab order, which a `grid-template-rows: 0fr` collapse does not — it
+ * hides pixels while screen readers still announce every answer. It also makes
+ * the component a server component, so the Q&A prose stays out of the bundle.
+ */
 export default function FaqGroups() {
-  const [open, setOpen] = useState<string | null>(FAQ_ITEMS[0].q);
-
   return (
     <section className="section-cream">
       <div className="container-site py-16 md:py-24">
@@ -18,33 +20,30 @@ export default function FaqGroups() {
         </nav>
 
         <div className="grid lg:grid-cols-12 gap-x-16 gap-y-12">
-          {FAQ_GROUPS.map(({ id, name }) => {
+          {FAQ_GROUPS.map(({ id, name }, groupIndex) => {
             const items = FAQ_ITEMS.filter((item) => item.group === name);
             return (
-              <section key={id} id={id} className="lg:col-span-12 grid lg:grid-cols-12 gap-x-16 gap-y-4 scroll-mt-28">
+              <section
+                key={id}
+                id={id}
+                className="lg:col-span-12 grid lg:grid-cols-12 gap-x-16 gap-y-4 scroll-mt-28"
+              >
                 <h2 className="lg:col-span-4 block-title lg:sticky lg:top-28 self-start">{name}</h2>
                 <div className="lg:col-span-8">
-                  {items.map(({ q, a }) => {
-                    const isOpen = open === q;
-                    return (
-                      <div key={q} className="qa-item">
-                        <button
-                          type="button"
-                          className="qa-q"
-                          aria-expanded={isOpen}
-                          onClick={() => setOpen(isOpen ? null : q)}
-                        >
-                          {q}
-                          <span className="qa-mark" aria-hidden />
-                        </button>
-                        <div className="qa-a" data-open={isOpen}>
-                          <div>
-                            <p>{a}</p>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
+                  {items.map(({ q, a }, i) => (
+                    <details
+                      key={q}
+                      className="qa-item"
+                      /* One answer starts open so the pattern is legible at a glance. */
+                      open={groupIndex === 0 && i === 0}
+                    >
+                      <summary className="qa-q">
+                        {q}
+                        <span className="qa-mark" aria-hidden />
+                      </summary>
+                      <p className="qa-a">{a}</p>
+                    </details>
+                  ))}
                 </div>
               </section>
             );

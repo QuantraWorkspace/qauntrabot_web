@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Navbar authNav={false} />
-      <main className="flex-1 pb-28 lg:pb-0">
+      <main id="main" className="flex-1 pb-28 lg:pb-0">
         <Hero />
         <MarketStrip />
         <TrustGrid />

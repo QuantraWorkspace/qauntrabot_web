@@ -18,7 +18,7 @@ export default function CommunityPage() {
   return (
     <>
       <Navbar authNav={false} />
-      <main className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
+      <main id="main" className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
         <PageHead
           title="Somewhere to be wrong out loud"
           lede="Most of what improves a trader comes from having the reasoning questioned before the position is open. These channels exist for that, which is why signal calls without an argument get removed."
@@ -27,9 +27,10 @@ export default function CommunityPage() {
         <HouseRules />
         <div className="section-cream">
           <div className="container-site pt-16 md:pt-24">
-            <h2 className="block-title">A sample of the week</h2>
+            <h2 className="block-title">What gets posted</h2>
             <p className="block-lede">
-              Three posts from the channels, reproduced as they were written.
+              Three made-up threads, written to show the shape of a useful post rather than to
+              report anything that happened.
             </p>
           </div>
           <CommunitySection hideHeader />

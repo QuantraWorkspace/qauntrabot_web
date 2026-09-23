@@ -16,7 +16,7 @@ export default function AboutPage() {
   return (
     <>
       <Navbar authNav={false} />
-      <main className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
+      <main id="main" className="flex-1 pt-20 md:pt-24 pb-28 lg:pb-0">
         <PageHead
           title="It started as one expert advisor"
           lede="Then the questions arrived, and almost none of them were about the EA."
