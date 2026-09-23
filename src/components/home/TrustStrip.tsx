@@ -17,7 +17,6 @@ export default function TrustStrip() {
             <ScrollReveal key={n} variant="up" delay={i * 70} className="h-full">
               <div className="card-surface-hover h-full p-6 flex flex-col gap-5">
                 <div className="flex items-center justify-between">
-                  <span className="card-number">{n}</span>
                   <Icon size={18} className="text-foreground" strokeWidth={1.75} />
                 </div>
                 <div>

@@ -3,15 +3,14 @@ import { SITE_URL } from "@/lib/site-config";
 
 export const SITE_NAME = "Quantra";
 
-export const DEFAULT_TITLE = "Quantra — Trading Education, Analysis, Tools & Community";
+export const DEFAULT_TITLE = "Quantra — Algorithmic Trading, Education, Tools & Community";
 
 export const DEFAULT_DESCRIPTION =
-  "Quantra is a trader-first ecosystem: education, fundamental and technical market analysis, trading signals, free TradingView indicators, algorithmic trading tools and a community of traders.";
+  "Quantra is a trader-first ecosystem for algorithmic trading: MT5 expert advisors, education, fundamental and technical market analysis, free TradingView indicators and a community of traders.";
 
 export const DEFAULT_KEYWORDS = [
   "trading education",
   "market analysis",
-  "trading signals",
   "TradingView indicators",
   "trading tools",
   "algorithmic trading",
@@ -29,7 +28,6 @@ export const PUBLIC_ROUTES: { path: string; changeFrequency?: "weekly" | "monthl
   { path: "/markets", changeFrequency: "weekly", priority: 0.9 },
   { path: "/education", changeFrequency: "monthly", priority: 0.9 },
   { path: "/tools", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/signals", changeFrequency: "weekly", priority: 0.8 },
   { path: "/algo", changeFrequency: "weekly", priority: 0.8 },
   { path: "/community", changeFrequency: "monthly", priority: 0.8 },
   { path: "/about", changeFrequency: "monthly", priority: 0.6 },

@@ -73,8 +73,8 @@ function LoginForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary"
-              placeholder="admin@example.com"
-            />
+              placeholder=""
+            />admin@example.com
           </div>
           <div className="stack-2">
             <label className="text-xs font-semibold text-muted-foreground font-data uppercase">

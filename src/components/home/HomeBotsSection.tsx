@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+
 import { deserializeBot, type SerializableBot } from "@/lib/bot-display";
 import type { BotDoc } from "@/lib/firestore";
 import SectionHeader from "@/components/shared/SectionHeader";
@@ -52,7 +52,6 @@ export default function HomeBotsSection() {
               className="btn-outline-brand shrink-0 self-start md:self-auto"
             >
               View pricing
-              <ArrowRight size={15} />
             </Link>
           </div>
         </ScrollReveal>

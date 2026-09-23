@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Link2, ShieldCheck, Timer, Waypoints } from "lucide-react";
+import { Link2, ShieldCheck, Timer, Waypoints } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const RISK_CONTROLS = [
@@ -46,7 +46,6 @@ export default function AlgoSection({ hideHeader = false }: AlgoSectionProps) {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/algo" className="btn-primary-brand justify-center group">
                   Explore Algo
-                  <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
                 </Link>
                 <Link href="/bots" className="btn-outline-brand justify-center">
                   View EA catalogue
@@ -60,7 +59,7 @@ export default function AlgoSection({ hideHeader = false }: AlgoSectionProps) {
               <div className="flex flex-wrap items-center justify-between gap-3 px-5 sm:px-6 py-4 border-b border-white/10 bg-black/20">
                 <div className="flex items-center gap-3 min-w-0">
                   <span className="text-sm font-semibold text-foreground">EA dashboard</span>
-                  <span className="hidden sm:inline text-xs text-muted-foreground">Quantra Gold · v2</span>
+                  <span className="hidden sm:inline text-xs text-muted-foreground">Quantra Gold, v2</span>
                 </div>
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-2.5 py-1 text-[0.6875rem] font-medium text-foreground">
                   <span className="h-1.5 w-1.5 rounded-full bg-profit" />
@@ -78,7 +77,7 @@ export default function AlgoSection({ hideHeader = false }: AlgoSectionProps) {
                       ["Trades today", "1"],
                     ].map(([k, v]) => (
                       <div key={k}>
-                        <dt className="text-[0.625rem] uppercase tracking-[0.12em] text-muted-foreground">{k}</dt>
+                        <dt className="text-[0.6875rem] text-muted-foreground">{k}</dt>
                         <dd className="mt-0.5 text-sm font-semibold text-foreground">{v}</dd>
                       </div>
                     ))}
@@ -110,12 +109,12 @@ export default function AlgoSection({ hideHeader = false }: AlgoSectionProps) {
                 <Panel icon={Link2} title="Account connection">
                   <div className="flex flex-col gap-3">
                     <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3 py-2.5">
-                      <span className="h-8 w-8 rounded-lg bg-primary/25 border border-primary/40 flex items-center justify-center text-[0.625rem] font-bold text-foreground">
+                      <span className="h-8 w-8 rounded-lg bg-primary/25 border border-primary/40 flex items-center justify-center text-[0.6875rem] font-bold text-foreground">
                         MT5
                       </span>
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-foreground truncate">Account ••••••42</p>
-                        <p className="text-xs text-muted-foreground">License bound · verified</p>
+                        <p className="text-xs text-muted-foreground">License bound, verified</p>
                       </div>
                     </div>
                     <p className="text-xs text-muted-foreground leading-relaxed">

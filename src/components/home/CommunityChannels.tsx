@@ -1,9 +1,9 @@
-import { ArrowUpRight } from "lucide-react";
+
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { SOCIAL_LINKS } from "@/lib/site-nav";
 
 const BLURBS: Record<string, string> = {
-  Telegram: "Daily market context, signal threads and live discussion.",
+  Telegram: "Daily market context, EA updates and live discussion.",
   Facebook: "Announcements, education posts and community highlights.",
   TikTok: "Short-form lessons and market breakdowns.",
   YouTube: "Long-form education, tool walkthroughs and reviews.",
@@ -27,13 +27,9 @@ export default function CommunityChannels() {
             const body = (
               <>
                 <div className="flex items-center justify-between">
-                  <span className="text-[0.6875rem] font-semibold tracking-[0.18em] uppercase text-muted-foreground">
-                    {label}
-                  </span>
-                  {href ? (
-                    <ArrowUpRight size={16} className="text-foreground transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  ) : (
-                    <span className="rounded-full border border-white/12 bg-white/5 px-2 py-0.5 text-[0.625rem] font-medium text-muted-foreground">
+                  <span className="text-sm font-semibold text-foreground">{label}</span>
+                  {!href && (
+                    <span className="rounded-full border border-white/12 bg-white/5 px-2 py-0.5 text-[0.6875rem] font-medium text-muted-foreground">
                       Soon
                     </span>
                   )}

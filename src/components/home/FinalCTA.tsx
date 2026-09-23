@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 export default function FinalCTA() {
@@ -21,7 +21,6 @@ export default function FinalCTA() {
           <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
             <Link href="/register" className="btn-primary-brand group justify-center">
               Join Quantra
-              <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
             </Link>
             <Link href="/tools" className="btn-outline-brand justify-center">
               Explore Free Tools

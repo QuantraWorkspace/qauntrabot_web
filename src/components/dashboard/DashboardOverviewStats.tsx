@@ -1,17 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Bot,
-  Calendar,
-  CandlestickChart,
-  CreditCard,
-  Monitor,
-  Sparkles,
-  Wallet,
-  TrendingUp,
-  ArrowRight,
-} from "lucide-react";
+import { Bot, Calendar, CandlestickChart, CreditCard, Monitor, Sparkles, Wallet, TrendingUp } from "lucide-react";
 import { useDashboard } from "@/contexts/DashboardContext";
 import { BILLING_PERIOD_LABEL } from "@/lib/subscription-plans";
 import { formatSymbolTimeframe } from "@/lib/chart-context";
@@ -57,7 +47,7 @@ export default function DashboardOverviewStats({
   return (
     <div className="stack-3">
       {syncedLabel && (
-        <p className="text-xs font-data text-muted-foreground">{syncedLabel} · auto-sync while EA is on chart</p>
+        <p className="text-xs font-data text-muted-foreground">{syncedLabel}, auto-sync while EA is on chart</p>
       )}
       <div className={`dashboard-grid-stats ${compact ? "" : "dashboard-grid-stats--wide"}`}>
       {!compact && (
@@ -149,7 +139,7 @@ export default function DashboardOverviewStats({
               {mtAccountNumber || "Not linked"}
             </p>
             <p className="text-[0.65rem] font-data text-primary mt-1 inline-flex items-center gap-1">
-              View details <ArrowRight size={12} />
+              View details
             </p>
           </div>
         </Link>

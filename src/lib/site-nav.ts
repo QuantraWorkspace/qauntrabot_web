@@ -5,7 +5,6 @@ export const PRIMARY_NAV: NavItem[] = [
   { label: "Markets", href: "/markets" },
   { label: "Education", href: "/education" },
   { label: "Tools", href: "/tools" },
-  { label: "Signals", href: "/signals" },
   { label: "Algo", href: "/algo" },
   { label: "Community", href: "/community" },
 ];

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, MessageSquareText, Sparkles, TrendingUp } from "lucide-react";
+import { MessageSquareText, Sparkles, TrendingUp } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const FEED = [
@@ -40,11 +40,9 @@ export default function CommunitySection({ hideHeader = false }: CommunitySectio
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/community" className="btn-primary-brand justify-center group">
                 Join Community
-                <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
               <Link href="/tools" className="btn-outline-brand justify-center group">
                 Explore Free Resources
-                <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
             </div>
           </ScrollReveal>
@@ -63,7 +61,7 @@ export default function CommunitySection({ hideHeader = false }: CommunitySectio
                   <div className="min-w-0 flex flex-col gap-1.5">
                     <div className="flex items-center gap-2 text-xs">
                       <span className="font-semibold text-foreground">{channel}</span>
-                      <span className="text-muted-foreground">· {meta}</span>
+                      <span className="text-muted-foreground">{meta}</span>
                     </div>
                     <p className="text-sm text-foreground/85 leading-relaxed">{text}</p>
                   </div>

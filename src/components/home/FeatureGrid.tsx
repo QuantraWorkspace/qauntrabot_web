@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, BookOpen, Bot, LineChart, Radio, Users, Wrench } from "lucide-react";
+import { BookOpen, Bot, FlaskConical, LineChart, Users, Wrench } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const FEATURES = [
@@ -19,10 +19,10 @@ const FEATURES = [
   },
   {
     n: "03",
-    label: "Signals",
-    icon: Radio,
-    href: "/signals",
-    text: "Structured trade ideas with clear context, levels and risk.",
+    label: "Backtesting",
+    icon: FlaskConical,
+    href: "/algo",
+    text: "Test rule-based strategies on years of tick data before a single live trade.",
   },
   {
     n: "04",
@@ -67,10 +67,9 @@ export default function FeatureGrid() {
                   <span className="icon-tile !w-10 !h-10">
                     <Icon size={18} className="text-foreground" strokeWidth={1.75} />
                   </span>
-                  <span className="card-number">{n}</span>
                 </div>
                 <div className="flex flex-col gap-2.5 flex-1">
-                  <h3 className="text-[0.6875rem] font-semibold tracking-[0.18em] uppercase text-muted-foreground">
+                  <h3 className="text-[0.6875rem] font-semibold text-muted-foreground">
                     {label}
                   </h3>
                   <p className="text-lg font-semibold text-foreground leading-snug tracking-[-0.015em]">
@@ -79,10 +78,6 @@ export default function FeatureGrid() {
                 </div>
                 <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
                   Explore
-                  <ArrowUpRight
-                    size={15}
-                    className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
                 </span>
               </Link>
             </ScrollReveal>

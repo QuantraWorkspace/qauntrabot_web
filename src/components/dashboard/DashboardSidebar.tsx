@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, LogOut, X, Menu } from "lucide-react";
+import { Globe, LogOut, X, Menu } from "lucide-react";
 import { useDashboard } from "@/contexts/DashboardContext";
 import { signOut } from "@/lib/auth";
 import { DASHBOARD_NAV, DASHBOARD_NAV_GROUPS, isDashboardNavActive } from "@/lib/dashboard-nav";
@@ -45,7 +45,7 @@ export default function DashboardSidebar({ mobileOpen, onMobileClose }: Dashboar
           <span className="brand-tile !w-8 !h-8">
             <Image src="/logo/logo.png" alt="" width={16} height={16} className="object-contain" />
           </span>
-          <span className="text-sm font-bold tracking-[0.16em] uppercase text-foreground">Quantra</span>
+          <span className="text-sm font-bold text-foreground">Quantra</span>
         </Link>
         {mobileOpen && (
           <button
@@ -91,7 +91,7 @@ export default function DashboardSidebar({ mobileOpen, onMobileClose }: Dashboar
 
       <div className="dashboard-sidebar-footer flex flex-col gap-1">
         <Link href="/" className="dashboard-sidebar-link" onClick={onMobileClose}>
-          <ArrowUpRight size={16} className="shrink-0" />
+          <Globe size={16} className="shrink-0" />
           Back to website
         </Link>
         <button

@@ -77,7 +77,7 @@ export default function AccountHealthCard({ snapshot, loading = false }: Props) 
         <div className="flex items-center justify-between gap-3">
           <p className="text-xs font-semibold text-foreground">Today vs day target</p>
           <span className="text-[0.6875rem] text-muted-foreground">
-            {bot ? `${bot.symbol}${bot.timeframe ? ` · ${bot.timeframe}` : ""}` : "EA not attached"}
+            {bot ? `${bot.symbol}${bot.timeframe ? `, ${bot.timeframe}` : ""}` : "EA not attached"}
           </span>
         </div>
         <div className="h-2 rounded-full bg-white/8 overflow-hidden">

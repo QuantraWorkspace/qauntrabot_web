@@ -27,7 +27,7 @@ export function SiteJsonLd() {
           url: SITE_URL,
           logo: `${SITE_URL}/logo/logo.png`,
           description:
-            "A trader-first ecosystem: trading education, market analysis, signals, free tools, algorithmic trading and community.",
+            "A trader-first ecosystem: algorithmic trading and expert advisors, trading education, market analysis, free tools and community.",
         },
         {
           "@context": "https://schema.org",

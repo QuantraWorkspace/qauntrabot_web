@@ -4,7 +4,6 @@ const PILLARS = [
   "Education",
   "Market intelligence",
   "Trading tools",
-  "Signals",
   "Automation",
   "Community",
 ];
@@ -25,7 +24,7 @@ export default function EcosystemSection() {
 
           <ScrollReveal variant="up" delay={120} className="lg:col-span-5 lg:pt-14 flex flex-col gap-8">
             <p className="lead-text">
-              Quantra brings education, market intelligence, trading tools, signals, automation and
+              Quantra brings education, market intelligence, trading tools, automation and
               community into one place, helping traders make better-informed decisions and
               continuously improve their process.
             </p>

@@ -2,7 +2,7 @@
 
 import { useId, useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Maximize2, TrendingDown, TrendingUp, Wallet } from "lucide-react";
+import { Maximize2, TrendingDown, TrendingUp, Wallet } from "lucide-react";
 import type { BalanceHistoryPoint, TradingSnapshot } from "@/lib/firestore";
 import { formatMoney } from "@/lib/format-money";
 import { formatRelativeTime } from "@/lib/dates";
@@ -188,12 +188,12 @@ export default function BalanceCard({ snapshot, loading = false, compact = false
               <circle cx={chart.last[0]} cy={chart.last[1]} r="3.5" fill="var(--profit)" stroke="#0E1116" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
             </svg>
 
-            <div className="absolute left-0 top-0 bottom-6 flex flex-col justify-between text-[0.625rem] text-muted-foreground font-data" aria-hidden>
+            <div className="absolute left-0 top-0 bottom-6 flex flex-col justify-between text-[0.6875rem] text-muted-foreground font-data" aria-hidden>
               {chart.yLabels.map((v, i) => (
                 <span key={i}>{formatMoney(v, currency).replace(/\.\d+$/, "")}</span>
               ))}
             </div>
-            <div className="mt-1.5 relative h-4 text-[0.625rem] text-muted-foreground font-data" aria-hidden>
+            <div className="mt-1.5 relative h-4 text-[0.6875rem] text-muted-foreground font-data" aria-hidden>
               {chart.xLabels.map(({ x, label }, i) => (
                 <span
                   key={i}
@@ -220,7 +220,7 @@ export default function BalanceCard({ snapshot, loading = false, compact = false
               Attach a Quantra EA to a chart on your linked MT account and balance, equity and history will stream here.
             </p>
             <Link href="/dashboard/setup" className="link-arrow text-xs mt-1">
-              Quick setup <ArrowRight size={13} />
+              Quick setup
             </Link>
           </div>
         )}

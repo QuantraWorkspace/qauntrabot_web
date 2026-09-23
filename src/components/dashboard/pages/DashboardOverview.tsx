@@ -8,6 +8,8 @@ import DashboardBlock from "@/components/dashboard/DashboardBlock";
 import BalanceCard from "@/components/dashboard/BalanceCard";
 import AccountHealthCard from "@/components/dashboard/AccountHealthCard";
 import OverviewGoalCards from "@/components/dashboard/OverviewGoalCards";
+import SessionClock from "@/components/home/SessionClock";
+import { Clock3 } from "lucide-react";
 
 export default function DashboardOverview() {
   const { loading, email, tradingSnapshot } = useDashboard();
@@ -25,9 +27,20 @@ export default function DashboardOverview() {
         <AccountHealthCard snapshot={tradingSnapshot} loading={loading} />
       </div>
 
-      <DashboardBlock title="At a glance">
-        <DashboardOverviewStats compact />
-      </DashboardBlock>
+      <div className="grid xl:grid-cols-[1fr_1.6fr] gap-4">
+        <div className="dashboard-card !gap-5">
+          <div className="flex items-center gap-3">
+            <span className="dashboard-icon-tile">
+              <Clock3 size={16} />
+            </span>
+            <p className="text-sm font-semibold text-foreground">Market sessions</p>
+          </div>
+          <SessionClock />
+        </div>
+        <DashboardBlock title="At a glance">
+          <DashboardOverviewStats compact />
+        </DashboardBlock>
+      </div>
 
       <DashboardSubscriptionAlerts />
 

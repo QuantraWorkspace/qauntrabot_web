@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AlertCircle, ArrowRight } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 import { useDashboard } from "@/contexts/DashboardContext";
 
 export default function DashboardSubscriptionAlerts() {
@@ -19,7 +19,7 @@ export default function DashboardSubscriptionAlerts() {
               MT account.
             </p>
             <Link href="/pricing" className="btn-primary-brand w-fit">
-              View pricing <ArrowRight size={16} />
+              View pricing
             </Link>
           </div>
         </div>
@@ -39,7 +39,7 @@ export default function DashboardSubscriptionAlerts() {
               <span className="font-data">{subscription.mtAccountNumber || "—"}</span>.
             </p>
             <Link href="/pricing" className="btn-primary-brand w-fit text-sm">
-              Renew now <ArrowRight size={16} />
+              Renew now
             </Link>
           </div>
         </div>

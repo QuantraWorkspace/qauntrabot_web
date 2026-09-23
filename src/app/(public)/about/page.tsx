@@ -7,7 +7,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "About",
   description:
-    "Quantra is a community-driven trading ecosystem: education, market intelligence, signals, free tools, automation and a community of traders in one place.",
+    "Quantra is a community-driven trading ecosystem: algorithmic trading, education, market intelligence, free tools and a community of traders in one place.",
   path: "/about",
 });
 

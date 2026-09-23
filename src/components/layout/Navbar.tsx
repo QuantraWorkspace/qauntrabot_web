@@ -4,19 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import {
-  ArrowRight,
-  BookOpen,
-  Bot,
-  Home,
-  LayoutGrid,
-  LineChart,
-  Radio,
-  Users,
-  Wrench,
-  X,
-  type LucideIcon,
-} from "lucide-react";
+import { BookOpen, Bot, Home, LayoutGrid, LineChart, Users, Wrench, X, type LucideIcon } from "lucide-react";
 import StaticAuthLinks from "./StaticAuthLinks";
 import UserNavMenu from "./UserNavMenu";
 import { PRIMARY_NAV } from "@/lib/site-nav";
@@ -31,7 +19,6 @@ const ICONS: Record<string, LucideIcon> = {
   "/markets": LineChart,
   "/education": BookOpen,
   "/tools": Wrench,
-  "/signals": Radio,
   "/algo": Bot,
   "/community": Users,
 };
@@ -62,8 +49,8 @@ export default function Navbar({ authNav = true }: NavbarProps) {
           <Link href="/" className="nav-chip pointer-events-auto cursor-pointer shrink-0">
             <Image src="/logo/logo.png" alt="Quantra" width={26} height={26} className="object-contain logo-mark shrink-0" priority />
             <span className="flex flex-col leading-none">
-              <span className="text-[0.8125rem] font-bold tracking-[0.2em] uppercase text-foreground">Quantra</span>
-              <span className="hidden sm:block lg:hidden 2xl:block mt-0.5 text-[0.5rem] font-medium tracking-[0.22em] uppercase text-muted-foreground">
+              <span className="text-[0.8125rem] font-bold text-foreground">Quantra</span>
+              <span className="hidden sm:block lg:hidden 2xl:block mt-0.5 text-[0.5rem] font-medium text-muted-foreground">
                 Trading ecosystem
               </span>
             </span>
@@ -144,7 +131,6 @@ export default function Navbar({ authNav = true }: NavbarProps) {
                 className="nav-sheet-item !text-white"
                 style={{ background: "linear-gradient(135deg, rgba(110,126,255,0.55), rgba(71,87,214,0.55))" }}
               >
-                <ArrowRight size={18} strokeWidth={1.8} />
                 Join Quantra
               </Link>
             </div>

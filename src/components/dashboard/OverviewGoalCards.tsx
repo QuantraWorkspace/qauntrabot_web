@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, CreditCard, KeyRound, Monitor } from "lucide-react";
+import { CreditCard, KeyRound, Monitor } from "lucide-react";
 import { useDashboard } from "@/contexts/DashboardContext";
 import { BILLING_PERIOD_LABEL } from "@/lib/subscription-plans";
 import { daysUntil, formatDisplayDate } from "@/lib/dates";
@@ -90,7 +90,7 @@ export default function OverviewGoalCards() {
           <div className="mt-auto flex items-center justify-between gap-3 pt-3 border-t border-white/8">
             <p className="text-[0.6875rem] text-muted-foreground">{foot}</p>
             <Link href={href} className="link-arrow !text-xs shrink-0">
-              {cta} <ArrowRight size={13} />
+              {cta}
             </Link>
           </div>
         </div>

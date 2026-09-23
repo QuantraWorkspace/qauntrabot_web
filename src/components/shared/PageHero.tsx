@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+
 
 export type PageHeroProps = {
   eyebrow?: string;
@@ -48,7 +48,7 @@ export default function PageHero({
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               {cta && (
                 <Link href={cta.href} className="btn-primary-brand justify-center">
-                  {cta.label} <ArrowRight size={16} />
+                  {cta.label}
                 </Link>
               )}
               {secondaryCta && (

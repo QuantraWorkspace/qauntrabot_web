@@ -1,6 +1,5 @@
 import PageWrapper from "@/components/layout/PageWrapper";
 import MarketIntelligence from "@/components/home/MarketIntelligence";
-import SignalsShowcase from "@/components/home/SignalsShowcase";
 import FinalCTA from "@/components/home/FinalCTA";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -22,11 +21,10 @@ export default function MarketsPage() {
         description:
           "Fundamental bias, technical structure and the events that matter, published before the session so you trade with context.",
         cta: { label: "Join Quantra", href: "/register" },
-        secondaryCta: { label: "See signals", href: "/signals" },
+        secondaryCta: { label: "Explore algo", href: "/algo" },
       }}
     >
       <MarketIntelligence hideHeader />
-      <SignalsShowcase />
       <FinalCTA />
     </PageWrapper>
   );

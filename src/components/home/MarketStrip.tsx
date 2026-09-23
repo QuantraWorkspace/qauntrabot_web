@@ -13,7 +13,7 @@ export default function MarketStrip() {
   return (
     <section className="py-6 md:py-10">
       <ScrollReveal variant="fade" className="container-site">
-        <p className="text-center text-[0.6875rem] font-semibold tracking-[0.22em] uppercase text-muted-foreground">
+        <p className="text-center text-[0.6875rem] font-semibold text-muted-foreground">
           Markets covered daily
         </p>
         <ul className="mt-6 flex flex-wrap items-center justify-center gap-6 sm:gap-10">

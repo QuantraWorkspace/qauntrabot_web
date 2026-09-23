@@ -1,13 +1,5 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  CalendarDays,
-  Calculator,
-  CandlestickChart,
-  LayoutDashboard,
-  ListChecks,
-  NotebookPen,
-} from "lucide-react";
+import { CalendarDays, Calculator, CandlestickChart, LayoutDashboard, ListChecks, NotebookPen } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 export const TOOLS = [
@@ -69,7 +61,6 @@ export default function ToolsSection({ hideHeader = false }: ToolsSectionProps) 
             </div>
             <Link href="/tools" className="btn-outline-brand shrink-0 self-start md:self-auto group">
               Explore Tools
-              <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
             </Link>
           </ScrollReveal>
         )}
@@ -82,7 +73,7 @@ export default function ToolsSection({ hideHeader = false }: ToolsSectionProps) 
                   <span className="icon-tile !w-11 !h-11">
                     <Icon size={20} className="text-foreground" strokeWidth={1.6} />
                   </span>
-                  <span className="rounded-full border border-white/12 bg-white/5 px-2.5 py-1 text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  <span className="rounded-full border border-white/12 bg-white/5 px-2.5 py-1 text-[0.6875rem] font-semibold text-muted-foreground">
                     {tag}
                   </span>
                 </div>

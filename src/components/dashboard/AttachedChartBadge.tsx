@@ -20,7 +20,7 @@ export default function AttachedChartBadge({ status, className = "" }: Props) {
     >
       <CandlestickChart size={18} className="text-primary shrink-0" aria-hidden />
       <div className="min-w-0">
-        <p className="text-[0.65rem] font-data uppercase tracking-wide text-muted-foreground">
+        <p className="text-[0.65rem] font-data tracking-wide text-muted-foreground">
           Attached chart
         </p>
         <p className="font-data text-lg sm:text-xl font-bold text-foreground tracking-tight truncate">

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import MiniChart from "./MiniChart";
 
@@ -15,7 +15,7 @@ const MARKETS: { symbol: string; name: string; bias: Bias; points: number[]; not
 const CONTEXT = [
   { label: "Fundamental bias", value: "Risk-on", tone: "bullish" as Bias },
   { label: "Technical bias", value: "Bullish structure", tone: "bullish" as Bias },
-  { label: "Key event", value: "US CPI · 13:30 UTC", tone: "neutral" as Bias },
+  { label: "Key event", value: "US CPI, 13:30 UTC", tone: "neutral" as Bias },
   { label: "Market session", value: "London → New York", tone: "neutral" as Bias },
 ];
 
@@ -36,7 +36,7 @@ export default function MarketIntelligence({ hideHeader = false }: MarketIntelli
             </p>
           </div>
           <Link href="/markets" className="link-arrow shrink-0">
-            View market analysis <ArrowRight size={16} />
+            View market analysis
           </Link>
         </ScrollReveal>
         )}
@@ -46,7 +46,7 @@ export default function MarketIntelligence({ hideHeader = false }: MarketIntelli
             <div className="flex flex-wrap items-center justify-between gap-3 px-5 sm:px-6 py-4 border-b border-border">
               <div className="flex items-center gap-3">
                 <span className="text-sm font-semibold text-foreground">Market dashboard</span>
-                <span className="hidden sm:inline text-xs text-muted-foreground">Daily bias · updated pre-London</span>
+                <span className="hidden sm:inline text-xs text-muted-foreground">Daily bias, updated pre-London</span>
               </div>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-2.5 py-1 text-[0.6875rem] font-medium text-muted-foreground">
                 UI example — illustrative only
@@ -70,7 +70,7 @@ export default function MarketIntelligence({ hideHeader = false }: MarketIntelli
                       }`}
                     >
                       <div className="sm:col-span-3">
-                        <p className="text-sm font-bold tracking-[0.1em] text-foreground">{symbol}</p>
+                        <p className="text-sm font-bold text-foreground">{symbol}</p>
                         <p className="text-xs text-muted-foreground">{name}</p>
                       </div>
                       <div className="sm:col-span-2 justify-self-end sm:justify-self-start">

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 export const EDUCATION_TRACKS = [
@@ -32,7 +32,6 @@ export default function EducationSection({ hideHeader = false }: EducationSectio
               </p>
               <Link href="/education" className="btn-primary-brand w-fit group">
                 Start Learning
-                <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
             </ScrollReveal>
           )}
@@ -51,10 +50,6 @@ export default function EducationSection({ hideHeader = false }: EducationSectio
                       <h3 className="text-lg font-semibold text-foreground tracking-[-0.015em]">{title}</h3>
                       <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{text}</p>
                     </div>
-                    <ArrowRight
-                      size={18}
-                      className="text-muted-foreground transition-all duration-200 group-hover:text-foreground group-hover:translate-x-0.5"
-                    />
                   </div>
                 </ScrollReveal>
               ))}

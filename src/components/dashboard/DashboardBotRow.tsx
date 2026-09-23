@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Download, Lock } from "lucide-react";
+import { Download, Lock } from "lucide-react";
 import type { BotDoc } from "@/lib/firestore";
 import { fetchSignedDownloadUrl } from "@/lib/download-client";
 import { toast } from "@/lib/toast";
@@ -75,7 +75,6 @@ export default function DashboardBotRow({ bot, canDownload, userPlatform }: Dash
           className="btn-outline-brand text-xs !py-2 !px-3 justify-center whitespace-nowrap"
         >
           Details
-          <ArrowRight size={14} />
         </Link>
         {canDownload && isDeployable ? (
           <button

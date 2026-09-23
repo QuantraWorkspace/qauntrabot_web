@@ -1,14 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import {
-  Activity,
-  Clock,
-  Gauge,
-  Grid3x3,
-  ShieldAlert,
-  TrendingUp,
-} from "lucide-react";
+import { Activity, Clock, Gauge, Grid3x3, ShieldAlert, TrendingUp } from "lucide-react";
 import type { BotRuntimeStatus } from "@/lib/firestore";
 import { formatSymbolTimeframe } from "@/lib/chart-context";
 import { formatMoney } from "@/lib/format-money";
@@ -92,7 +85,7 @@ export default function BotLiveSituation({ status, currency, botLabel }: Props) 
       }
       action={
         <span className="text-xs font-data text-muted-foreground">
-          {title} · {formatSymbolTimeframe(status.symbol, status.timeframe)}
+          {title}, {formatSymbolTimeframe(status.symbol, status.timeframe)}
         </span>
       }
     >
