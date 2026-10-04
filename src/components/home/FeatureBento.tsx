@@ -13,7 +13,7 @@ export default function FeatureBento() {
         <ScrollReveal variant="up" className="flex flex-col items-center text-center gap-5 mb-12 md:mb-16">
           <h2 className="section-title">One ecosystem. Everything a trader needs.</h2>
           <p className="lead-text max-w-2xl">
-            Quantra brings education, market intelligence, trading tools, automation and
+            Zentra brings education, market intelligence, trading tools, automation and
             community into one place, helping traders make better-informed decisions.
           </p>
         </ScrollReveal>
@@ -26,7 +26,7 @@ export default function FeatureBento() {
                   <Bot size={20} className="text-primary" strokeWidth={1.8} />
                 </span>
                 <h3 className="text-3xl md:text-4xl font-bold tracking-[-0.03em] text-foreground leading-[1.05]">
-                  Quantra
+                  Zentra
                   <br />
                   Automated
                   <br />
@@ -113,7 +113,7 @@ export default function FeatureBento() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <ShieldCheck size={14} className="text-primary" />
-                    <p className="text-xs font-semibold text-foreground">Quantra Gold v2, live</p>
+                    <p className="text-xs font-semibold text-foreground">Zentra Gold v2, live</p>
                   </div>
                   <span className="bias-pill" data-bias="bullish">
                     Within limits

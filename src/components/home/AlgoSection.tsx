@@ -27,14 +27,14 @@ export default function AlgoSection({ hideHeader = false }: AlgoSectionProps) {
             <ScrollReveal variant="up" className="lg:col-span-5 flex flex-col gap-6">
               <h2 className="section-title">Automate your strategy.</h2>
               <p className="lead-text max-w-md">
-                Explore Quantra&apos;s algorithmic trading tools and EAs designed to automate rule-based
+                Explore Zentra&apos;s algorithmic trading tools and EAs designed to automate rule-based
                 strategies and reduce manual execution.
               </p>
               <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
                 {[
                   "Transparent rules, configurable risk controls",
                   "Runs on MT5 with account-bound licensing",
-                  "Managed from your Quantra dashboard",
+                  "Managed from your Zentra dashboard",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_rgba(91,108,255,0.9)] shrink-0" />
@@ -58,7 +58,7 @@ export default function AlgoSection({ hideHeader = false }: AlgoSectionProps) {
               <div className="flex flex-wrap items-center justify-between gap-3 px-5 sm:px-6 py-4 border-b border-white/10 bg-black/20">
                 <div className="flex items-center gap-3 min-w-0">
                   <span className="text-sm font-semibold text-foreground">EA dashboard</span>
-                  <span className="hidden sm:inline text-xs text-muted-foreground">Quantra Gold, v2</span>
+                  <span className="hidden sm:inline text-xs text-muted-foreground">Zentra Gold, v2</span>
                 </div>
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-2.5 py-1 text-[0.6875rem] font-medium text-foreground">
                   <span className="h-1.5 w-1.5 rounded-full bg-profit" />

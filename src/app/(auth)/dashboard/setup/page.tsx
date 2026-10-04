@@ -3,7 +3,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Quick setup",
-  description: "How to install and run your Quantra expert advisors.",
+  description: "How to install and run your Zentra expert advisors.",
   path: "/dashboard/setup",
   noIndex: true,
 });

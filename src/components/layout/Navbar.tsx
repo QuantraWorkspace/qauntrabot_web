@@ -3,11 +3,11 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 import { BookOpen, Bot, Home, LayoutGrid, LineChart, Users, Wrench, X, type LucideIcon } from "lucide-react";
 import StaticAuthLinks from "./StaticAuthLinks";
 import UserNavMenu from "./UserNavMenu";
 import { PRIMARY_NAV } from "@/lib/site-nav";
+import { ZentraMark } from "@/components/layout/Logo";
 
 type NavbarProps = {
   /** When false, skip Firebase auth in the nav (marketing pages). */
@@ -23,7 +23,7 @@ const ICONS: Record<string, LucideIcon> = {
   "/community": Users,
 };
 
-const MOBILE_BAR = ["/", "/markets", "/tools", "/algo"];
+const MOBILE_BAR = ["/", "/markets", "/education", "/tools"];
 
 export default function Navbar({ authNav = true }: NavbarProps) {
   const [moreOpen, setMoreOpen] = useState(false);
@@ -47,9 +47,9 @@ export default function Navbar({ authNav = true }: NavbarProps) {
       <header className="fixed top-0 inset-x-0 z-50 pointer-events-none">
         <div className="container-site flex items-center justify-between gap-4 pt-3 md:pt-4">
           <Link href="/" className="nav-chip pointer-events-auto cursor-pointer shrink-0">
-            <Image src="/logo/logo.png" alt="Quantra" width={26} height={26} className="object-contain logo-mark shrink-0" priority />
+            <ZentraMark size={26} className="text-foreground shrink-0" />
             <span className="flex flex-col leading-none">
-              <span className="text-[0.8125rem] font-bold text-foreground">Quantra</span>
+              <span className="text-[0.8125rem] font-bold text-foreground">Zentra</span>
               <span className="hidden sm:block lg:hidden 2xl:block mt-0.5 text-[0.5rem] font-medium text-muted-foreground">
                 Trading ecosystem
               </span>
@@ -83,7 +83,7 @@ export default function Navbar({ authNav = true }: NavbarProps) {
               <UserNavMenu />
             ) : (
               <Link href="/register" className="btn-primary-brand nav-action text-sm !px-4">
-                Join Quantra
+                Join Zentra
               </Link>
             )}
           </div>
@@ -131,7 +131,7 @@ export default function Navbar({ authNav = true }: NavbarProps) {
                 className="nav-sheet-item !text-white"
                 style={{ background: "linear-gradient(135deg, rgba(110,126,255,0.55), rgba(71,87,214,0.55))" }}
               >
-                Join Quantra
+                Join Zentra
               </Link>
             </div>
           </div>

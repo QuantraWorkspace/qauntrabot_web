@@ -14,7 +14,7 @@ export default function Hero() {
             Trade with purpose.
           </h1>
           <p className="lead-text max-w-xl hero-enter hero-d-1">
-            Expert advisors, education, market analysis and free tools for traders who want a
+            Market news, desk analysis, structured courses and free tools for traders who want a
             process, in one place.
           </p>
           <form
@@ -34,7 +34,7 @@ export default function Hero() {
               className="min-w-0 flex-1 bg-transparent text-base text-foreground placeholder:text-muted-foreground/70 outline-none"
             />
             <button type="submit" className="btn-primary-brand shrink-0 !py-3.5">
-              Join Quantra
+              Join Zentra
             </button>
           </form>
         </div>
@@ -43,7 +43,7 @@ export default function Hero() {
           <div className="rounded-2xl border border-white/10 bg-black/25 p-5 sm:p-6">
             <SessionClock />
             <p className="mt-5 text-xs text-muted-foreground leading-relaxed">
-              Quantra publishes market context before London opens and reviews ideas after New York
+              Zentra publishes market context before London opens and reviews ideas after New York
               closes. Times are UTC.
             </p>
           </div>

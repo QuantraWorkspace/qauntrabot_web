@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import {
   LayoutDashboard,
@@ -12,6 +11,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { signOut } from "@/lib/auth";
+import { ZentraMark } from "@/components/layout/Logo";
 
 const NAV = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
@@ -33,9 +33,9 @@ export default function AdminSidebar() {
     <aside className="w-full lg:w-60 shrink-0 bg-primary text-primary-foreground flex flex-col min-h-screen lg:min-h-0 lg:sticky lg:top-0 lg:h-screen">
       <div className="p-5 border-b border-white/10">
         <Link href="/admin" className="flex items-center gap-2.5">
-          <Image src="/logo/logo.png" alt="" width={28} height={28} className="rounded-md" />
+          <ZentraMark size={28} />
           <div>
-            <p className="font-display font-bold text-sm leading-none">Quantra</p>
+            <p className="font-display font-bold text-sm leading-none">Zentra</p>
             <p className="text-[0.65rem] text-primary-foreground/50 font-data uppercase tracking-wider mt-0.5">
               Admin
             </p>

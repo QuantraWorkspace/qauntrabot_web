@@ -25,7 +25,7 @@ export function SiteJsonLd() {
           "@type": "Organization",
           name: SITE_NAME,
           url: SITE_URL,
-          logo: `${SITE_URL}/logo/logo.png`,
+          logo: `${SITE_URL}/logo/zentra.png`,
           description:
             "A trader-first ecosystem: algorithmic trading and expert advisors, trading education, market analysis, free tools and community.",
         },

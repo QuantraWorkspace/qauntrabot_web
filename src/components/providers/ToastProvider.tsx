@@ -14,8 +14,8 @@ export default function ToastProvider() {
       draggable
       limit={4}
       theme="colored"
-      className="qauntra-toast-container"
-      toastClassName="qauntra-toast"
+      className="zentra-toast-container"
+      toastClassName="zentra-toast"
     />
   );
 }

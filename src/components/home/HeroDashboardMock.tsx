@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { BarChart3, Bell, BookOpen, Bot, FlaskConical, LayoutDashboard, LineChart, Moon, NotebookPen, Plus, Search, SlidersHorizontal, Sun, Wrench, X } from "lucide-react";
 import MiniChart from "./MiniChart";
+import { ZentraMark } from "@/components/layout/Logo";
 
 const EQUITY = [42, 44, 41, 46, 45, 49, 47, 52, 50, 48, 53, 55, 52, 57, 56, 60, 58, 63, 61, 66];
 
@@ -39,9 +39,9 @@ export default function HeroDashboardMock() {
         <aside className="hidden md:flex flex-col border-r border-white/8 p-4 gap-6">
           <div className="flex items-center gap-2.5 px-1">
             <span className="brand-tile !w-8 !h-8">
-              <Image src="/logo/logo.png" alt="" width={16} height={16} className="object-contain" />
+              <ZentraMark size={16} />
             </span>
-            <span className="text-sm font-bold text-foreground">Quantra</span>
+            <span className="text-sm font-bold text-foreground">Zentra</span>
           </div>
           <MockNav items={NAV_MAIN} />
           <div>
@@ -88,7 +88,7 @@ export default function HeroDashboardMock() {
               <span className="mock-pill !pl-1">
                 <span className="h-5 w-5 rounded-full bg-gradient-to-br from-primary to-blue-400" />
                 <span className="hidden lg:flex flex-col leading-none">
-                  <span className="text-[0.6875rem] font-semibold text-foreground">Quantra member</span>
+                  <span className="text-[0.6875rem] font-semibold text-foreground">Zentra member</span>
                   <span className="text-[0.6875rem] text-muted-foreground mt-0.5">Pro plan</span>
                 </span>
               </span>

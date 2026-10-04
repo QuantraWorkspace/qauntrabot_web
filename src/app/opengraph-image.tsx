@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Quantra — a trader ecosystem";
+export const alt = "Zentra — a trader ecosystem";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -47,15 +47,18 @@ export default function OpenGraphImage() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: "#04120B",
-              fontSize: 26,
-              fontWeight: 700,
             }}
           >
-            Q
+            <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+              <g stroke="#04120B" strokeWidth="3.4" strokeLinecap="round">
+                <path d="M5.5 7.5H26.5" />
+                <path d="M23.5 7.5L8.5 24.5" />
+                <path d="M5.5 24.5H26.5" />
+              </g>
+            </svg>
           </div>
           <div style={{ color: "#F4F6F8", fontSize: 30, fontWeight: 600, letterSpacing: -0.5 }}>
-            Quantra
+            Zentra
           </div>
         </div>
 

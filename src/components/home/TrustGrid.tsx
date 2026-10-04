@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { BarChart3, BookOpen, Users, Wrench } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import { ZentraMark } from "@/components/layout/Logo";
 
 /**
  * Deliberately untinted. These four had an accent each (mint, blue, red, amber),
@@ -35,7 +35,7 @@ export default function TrustGrid() {
 
           <div className="hidden sm:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 h-16 w-16 items-center justify-center rounded-full bg-[#0E1116] border border-white/12 shadow-[0_0_0_10px_#0A0C10,0_0_60px_-10px_rgba(62,207,142,0.7)]">
             <span className="brand-tile !h-9 !w-9 !rounded-full">
-              <Image src="/logo/logo.png" alt="Quantra" width={18} height={18} className="object-contain" />
+              <ZentraMark size={18} />
             </span>
           </div>
         </div>

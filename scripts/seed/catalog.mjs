@@ -1,5 +1,5 @@
 /**
- * Canonical Firestore seed data for Quantra.
+ * Canonical Firestore seed data for Zentra.
  * Run: npm run seed:data
  */
 

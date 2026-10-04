@@ -85,12 +85,12 @@ export function getDefaultPlans(): SubscriptionPlanDoc[] {
 }
 
 export const ALL_ACCESS_FEATURES = [
-  "Access to every bot in the catalogue",
-  "MT4 & MT5 Expert Advisors",
-  "Hardware-locked license for your account",
-  "EA downloads while subscription is active",
+  "Daily market news and desk analysis",
+  "Economic calendar filtered to your markets",
+  "Every course: structure, risk, macro and psychology",
+  "Indicator library and custom indicator requests",
+  "Member community",
   "Email support",
-  "Strategy & build updates",
   "7-day money-back guarantee",
 ];
 

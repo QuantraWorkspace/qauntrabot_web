@@ -13,7 +13,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Algo & EA",
   description:
-    "Quantra's algorithmic trading tools and MT5 expert advisors: published rules, risk controls you set, and account-bound licensing.",
+    "Zentra's algorithmic trading tools and MT5 expert advisors: published rules, risk controls you set, and account-bound licensing.",
   path: "/algo",
 });
 

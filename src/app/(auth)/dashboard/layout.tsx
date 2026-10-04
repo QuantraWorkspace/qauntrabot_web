@@ -5,7 +5,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Dashboard",
-  description: "Manage your subscription, license, and Expert Advisor downloads.",
+  description: "Market news, the economic calendar and trading lessons in one place.",
   path: "/dashboard",
   noIndex: true,
 });

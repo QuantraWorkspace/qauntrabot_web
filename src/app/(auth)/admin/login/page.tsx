@@ -2,12 +2,12 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { signIn } from "@/lib/auth";
 import { toast } from "@/lib/toast";
 import { useIsAdmin } from "@/hooks/useIsAdmin";
 import { useAuth } from "@/contexts/AuthContext";
+import { ZentraMark } from "@/components/layout/Logo";
 
 function LoginForm() {
   const router = useRouter();
@@ -55,7 +55,7 @@ function LoginForm() {
     <div className="min-h-screen bg-background flex items-center justify-center p-6">
       <div className="w-full max-w-md card-surface card-pad stack-6">
         <div className="flex flex-col items-center stack-3 text-center">
-          <Image src="/logo/logo.png" alt="Quantra" width={48} height={48} />
+          <ZentraMark size={48} className="text-primary" />
           <h1 className="font-display text-2xl font-bold text-foreground">Admin sign in</h1>
           <p className="text-sm text-muted-foreground">
             Restricted to authorized administrators only.
@@ -73,8 +73,8 @@ function LoginForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/15 focus:border-primary"
-              placeholder=""
-            />admin@example.com
+              placeholder="admin@example.com"
+            />
           </div>
           <div className="stack-2">
             <label className="text-xs font-semibold text-muted-foreground font-data uppercase">

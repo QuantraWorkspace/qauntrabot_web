@@ -13,7 +13,7 @@ export default function AboutStory() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
           <div className="lg:col-span-7 read-col">
             <p>
-              Quantra began as a single expert advisor for MetaTrader 5. It did one job — apply a gold
+              Zentra began as a single expert advisor for MetaTrader 5. It did one job — apply a gold
               strategy without the hesitation that costs most traders their edge — and it did that job
               well enough that the questions started arriving.
             </p>

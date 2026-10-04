@@ -16,14 +16,14 @@ const TOOLS = [
     id: "calendar",
     name: "Economic calendar",
     text: "High-impact releases with a line on why each one matters for the markets the desk tracks.",
-    where: "Quantra web",
+    where: "Zentra web",
     access: "Free, no account",
   },
   {
     id: "risk",
     name: "Risk calculator",
     text: "Position size from account balance, stop distance and the percentage you are willing to lose.",
-    where: "Quantra web",
+    where: "Zentra web",
     access: "Free, no account",
   },
   {
@@ -44,7 +44,7 @@ const TOOLS = [
     id: "dashboard",
     name: "Market dashboard",
     text: "The day's bias, active session and key events for Gold, Nasdaq, the dollar and Bitcoin in one view.",
-    where: "Quantra dashboard",
+    where: "Zentra dashboard",
     access: "Account needed",
   },
 ];

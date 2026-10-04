@@ -19,7 +19,7 @@ const FEED = [
     icon: Sparkles,
     channel: "#tools",
     text: "New TradingView session indicator released. Free for everyone in the community.",
-    meta: "Quantra tools",
+    meta: "Zentra tools",
   },
 ];
 

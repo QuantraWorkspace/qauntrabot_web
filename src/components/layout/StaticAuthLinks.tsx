@@ -15,7 +15,7 @@ export default function StaticAuthLinks({ mobile = false }: StaticAuthLinksProps
           Dashboard
         </Link>
         <Link href="/register" className="btn-primary-brand w-full justify-center">
-          Join Quantra
+          Join Zentra
         </Link>
       </div>
     );
@@ -27,7 +27,7 @@ export default function StaticAuthLinks({ mobile = false }: StaticAuthLinksProps
         Dashboard
       </Link>
       <Link href="/register" className="btn-primary-brand nav-action">
-        Join Quantra
+        Join Zentra
       </Link>
     </>
   );

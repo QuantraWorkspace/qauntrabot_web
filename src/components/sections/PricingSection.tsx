@@ -56,8 +56,8 @@ export default function PricingSection({ hideHeader = false }: { hideHeader?: bo
             align="center"
             eyebrow="All-access subscription"
             title="One plan."
-            accent="Every bot."
-            description="Same full catalogue access — choose monthly, 6-month, or yearly billing."
+            accent="Everything included."
+            description="The same full access to news, analysis and courses — choose monthly, 6-month, or yearly billing."
           />
         </div>
       )}

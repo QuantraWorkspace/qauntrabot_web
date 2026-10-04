@@ -10,7 +10,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Community",
   description:
-    "Join the Quantra trader community: market discussion, analysis threads, education, free tools and trade reviews.",
+    "Join the Zentra trader community: market discussion, analysis threads, education, free tools and trade reviews.",
   path: "/community",
 });
 

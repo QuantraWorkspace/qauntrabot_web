@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site-config";
 
-export const SITE_NAME = "Quantra";
+export const SITE_NAME = "Zentra";
 
-export const DEFAULT_TITLE = "Quantra — Algorithmic Trading, Education, Tools & Community";
+export const DEFAULT_TITLE = "Zentra — Algorithmic Trading, Education, Tools & Community";
 
 export const DEFAULT_DESCRIPTION =
-  "Quantra is a trader-first ecosystem for algorithmic trading: MT5 expert advisors, education, fundamental and technical market analysis, free TradingView indicators and a community of traders.";
+  "Zentra is a trader-first ecosystem for algorithmic trading: MT5 expert advisors, education, fundamental and technical market analysis, free TradingView indicators and a community of traders.";
 
 export const DEFAULT_KEYWORDS = [
   "trading education",
@@ -17,7 +17,7 @@ export const DEFAULT_KEYWORDS = [
   "expert advisor",
   "MT5 EA",
   "trading community",
-  "Quantra",
+  "Zentra",
 ];
 
 export const PUBLIC_ROUTES: { path: string; changeFrequency?: "weekly" | "monthly"; priority?: number }[] = [

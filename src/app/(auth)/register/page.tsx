@@ -7,7 +7,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Create account",
   description:
-    "Create a free Quantra account for the market dashboard, the education tracks and your trading journal. A licence is only needed to run an expert advisor.",
+    "Create a free Zentra account for the market dashboard, the education tracks and your trading journal. A licence is only needed to run an expert advisor.",
   path: "/register",
 });
 

@@ -9,7 +9,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "FAQs",
   description:
-    "Answers on brokers, licensing, running an expert advisor, and what Quantra will and will not claim about performance.",
+    "Answers on brokers, licensing, running an expert advisor, and what Zentra will and will not claim about performance.",
   path: "/faqs",
 });
 
@@ -28,7 +28,7 @@ export default function FAQsPage() {
           line="Still stuck on something?"
           sub="Ask in the community channels, where the answer stays visible for whoever hits the same thing next."
           action={{ label: "Go to the channels", href: "/community" }}
-          secondary={{ label: "Read the specification", href: "/algo" }}
+          secondary={{ label: "See the curriculum", href: "/education" }}
         />
       </main>
       <Footer />

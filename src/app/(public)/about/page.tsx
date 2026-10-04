@@ -8,7 +8,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "About",
   description:
-    "Quantra is a trader ecosystem: algorithmic trading, education, market intelligence, free tools and a community, built around process rather than shortcuts.",
+    "Zentra is a trader ecosystem: algorithmic trading, education, market intelligence, free tools and a community, built around process rather than shortcuts.",
   path: "/about",
 });
 

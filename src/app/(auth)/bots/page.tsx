@@ -9,7 +9,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Trading Bots",
   description:
-    "Every Quantra expert advisor, with its instrument, risk profile and current state. Anything still in testing says so.",
+    "Every Zentra expert advisor, with its instrument, risk profile and current state. Anything still in testing says so.",
   path: "/bots",
 });
 

@@ -217,7 +217,7 @@ export default function BalanceCard({ snapshot, loading = false, compact = false
           <div className="h-44 md:h-52 -ml-14 rounded-xl border border-dashed border-white/12 bg-white/[0.02] flex flex-col items-center justify-center text-center gap-2 px-6">
             <p className="text-sm font-semibold text-foreground">No balance synced yet</p>
             <p className="text-xs text-muted-foreground max-w-xs leading-relaxed">
-              Attach a Quantra EA to a chart on your linked MT account and balance, equity and history will stream here.
+              Attach a Zentra EA to a chart on your linked MT account and balance, equity and history will stream here.
             </p>
             <Link href="/dashboard/setup" className="link-arrow text-xs mt-1">
               Quick setup

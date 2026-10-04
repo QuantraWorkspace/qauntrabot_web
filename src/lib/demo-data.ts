@@ -15,7 +15,7 @@ export const DASHBOARD_DEMO =
   process.env.NEXT_PUBLIC_DASHBOARD_DEMO === "true" && process.env.NODE_ENV !== "production";
 
 export const DEMO_UID = "demo-user";
-export const DEMO_EMAIL = "demo@quantra.app";
+export const DEMO_EMAIL = "demo@zentra.app";
 export const DEMO_PLATFORM = "MT5";
 export const DEMO_MT_ACCOUNT = "10000001";
 
@@ -45,12 +45,12 @@ export function buildDemoSnapshot(now = Date.now()): TradingSnapshot {
     equity: Math.round((last + floating) * 100) / 100,
     profit: floating,
     currency: "USD",
-    server: "Quantra-Demo",
+    server: "Zentra-Demo",
     maxFloatingLoss: -463.2,
     balanceHistory: history,
     updatedAt: new Date(now - 42e3),
     botStatus: {
-      botName: "Quantra Gold v2",
+      botName: "Zentra Gold v2",
       symbol: "XAUUSD",
       timeframe: "M15",
       serverTime: new Date(now).toISOString(),
@@ -105,8 +105,8 @@ export function buildDemoBots(now = Date.now()): BotDoc[] {
     {
       ...base,
       id: "demo-gold-v2",
-      fileKey: "bots/demo-gold-v2/QuantraGoldV2.ex5",
-      name: "Quantra Gold v2",
+      fileKey: "bots/demo-gold-v2/ZentraGoldV2.ex5",
+      name: "Zentra Gold v2",
       subtitle: "Session-filtered trend grid for XAUUSD",
       asset: "Gold",
       assetTag: "XAUUSD",
@@ -123,8 +123,8 @@ export function buildDemoBots(now = Date.now()): BotDoc[] {
     {
       ...base,
       id: "demo-nas-breakout",
-      fileKey: "bots/demo-nas-breakout/QuantraNasBreakout.ex5",
-      name: "Quantra NAS100 Breakout",
+      fileKey: "bots/demo-nas-breakout/ZentraNasBreakout.ex5",
+      name: "Zentra NAS100 Breakout",
       subtitle: "Opening-range breakout on Nasdaq",
       asset: "Indices",
       assetTag: "NAS100",
@@ -142,7 +142,7 @@ export function buildDemoBots(now = Date.now()): BotDoc[] {
       ...base,
       id: "demo-btc-swing",
       fileKey: "",
-      name: "Quantra BTC Swing",
+      name: "Zentra BTC Swing",
       subtitle: "Daily-structure swing model for Bitcoin",
       asset: "Crypto",
       assetTag: "BTCUSD",

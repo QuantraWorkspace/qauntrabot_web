@@ -9,7 +9,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Tools",
   description:
-    "Free trading tools from Quantra: TradingView indicators, economic calendar, risk calculator, trading journal, checklists and the market dashboard.",
+    "Free trading tools from Zentra: TradingView indicators, economic calendar, risk calculator, trading journal, checklists and the market dashboard.",
   path: "/tools",
 });
 

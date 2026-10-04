@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   FOOTER_COMPANY,
@@ -7,6 +6,7 @@ import {
   SOCIAL_LINKS,
   type NavItem,
 } from "@/lib/site-nav";
+import { ZentraMark } from "@/components/layout/Logo";
 
 const COLUMNS: { title: string; links: NavItem[] }[] = [
   { title: "Platform", links: FOOTER_PLATFORM },
@@ -29,10 +29,10 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-5 lg:col-span-4 flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-3 w-fit cursor-pointer">
               <span className="brand-tile">
-                <Image src="/logo/logo.png" alt="Quantra" width={18} height={18} className="object-contain" />
+                <ZentraMark size={18} />
               </span>
               <span className="text-[0.9375rem] font-bold text-foreground">
-                Quantra
+                Zentra
               </span>
             </Link>
             <p className="text-base text-muted-foreground leading-relaxed max-w-xs">
@@ -80,11 +80,11 @@ export default function Footer() {
         <div className="mt-14 pt-6 border-t border-white/8 flex flex-col gap-6">
           <p className="text-xs text-muted-foreground leading-relaxed max-w-3xl">
             Trading involves substantial risk and is not suitable for every investor. Nothing on
-            Quantra is investment advice. Analysis, tools and automation are provided for
+            Zentra is investment advice. Analysis, tools and automation are provided for
             educational purposes; past results do not guarantee future outcomes.
           </p>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-muted-foreground">
-            <p>© {new Date().getFullYear()} Quantra. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Zentra. All rights reserved.</p>
           </div>
         </div>
       </div>

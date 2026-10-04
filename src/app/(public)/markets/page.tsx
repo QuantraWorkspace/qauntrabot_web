@@ -11,7 +11,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Markets",
   description:
-    "Daily fundamental and technical context for Gold, Nasdaq, USD and BTC. Bias, key events and session notes from the Quantra market desk.",
+    "Daily fundamental and technical context for Gold, Nasdaq, USD and BTC. Bias, key events and session notes from the Zentra market desk.",
   path: "/markets",
 });
 
